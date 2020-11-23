@@ -1,6 +1,6 @@
 ![enter image description here](https://img.shields.io/badge/Author-Nestorbd-yellow)
 
-# Full-Stack-Proyect
+# Full Stack Proyect
 
 Website of Commerce of Canarian products
 
