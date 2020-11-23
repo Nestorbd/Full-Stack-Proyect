@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="12px" viewBox="0 0 15 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>check</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Components" transform="translate(-376.000000, -645.000000)" fill="#A7C15B">
+            <g id="check" transform="translate(376.000000, 645.000000)">
+                <path d="M0.173076923,6.6 C0.0576923077,6.48 0,6.3 0,6.18 C0,6.06 0.0576923077,5.88 0.173076923,5.76 L0.980769231,4.92 C1.21153846,4.68 1.55769231,4.68 1.78846154,4.92 L1.84615385,4.98 L5.01923077,8.52 C5.13461538,8.64 5.30769231,8.64 5.42307692,8.52 L13.1538462,0.18 L13.2121154,0.18 C13.4423077,-0.06 13.7890385,-0.06 14.0192308,0.18 L14.8269231,1.02 C15.0576923,1.26 15.0576923,1.62 14.8269231,1.86 L5.59615385,11.82 C5.48076923,11.94 5.36538462,12 5.19230769,12 C5.01923077,12 4.90384615,11.94 4.78846154,11.82 L0.288461538,6.78 L0.173076923,6.6 Z" id="Fill-1"></path>
+            </g>
+        </g>
+    </g>
+</svg>

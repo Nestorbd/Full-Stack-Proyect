@@ -1,0 +1,333 @@
+/*** start generic styles ***/
+* { padding: 0px; margin: 0px; outline: none; zoom: 1; -webkit-tap-highlight-color: transparent; }
+html, body { background-color: transparent; width: 100%; height: 100%; }
+table { border-spacing: 0px; /*CHROME-BUG: border-collapse: collapse;*/ }
+a { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+.hidden { display: none; }
+#simulation .hidden { display: none !important; } /* because texts have display */
+.forceVisible { display: block !important; } /* is ever used? */
+#simulation .hidden.forceVisible { display: block !important; } /* this rule has to win against the #simulation .hidden */
+.hover { background-color: #b2b4bf; }
+.clear { clear:both; }
+body.review { overflow: hidden; }
+body.force-reflow { border-right: 2px solid transparent; }
+#jim-mainWindow { background-color: #FFFFFF; height:100%; left:0px; overflow:hidden; width:auto; position:relative;}
+#jim-body { overflow: auto; width: 100%; height:auto; bottom:0; position:absolute; top:0;background-color: #efefef;}
+.showComments #jim-body { top: 47px; }
+#jim-web{ margin: 0 auto; display: none; }
+body.web #jim-web{ display:block; }
+#simulation { position: relative; overflow: auto; height: 100%; z-index: 2; }
+.template, .screen { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; }
+.template > #alignmentBox, .screen > #alignmentBox { width: 100%; height: 100%; }
+.masterinstance{ pointer-events: none; position: relative; display: contents; }
+.masterinstance #alignmentBox{ pointer-events: auto; }
+.pin-transform-layer { 
+	transform: translate(0); 
+	position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+#jim-mobile{ display:none; }
+#toppanel{ display:none; }
+
+#jim-web #web-clip-left{ position: absolute; left: 0; width: 328px; height: 100%; background-color: #f6f7f8; z-index: 3;}
+#jim-web #web-clip-right{ position: absolute; right: 0px; top: 0px; width: 327px; height: 100%; background-color: #f6f7f8; z-index: 3;}
+.ui-page.invisible, .ui-page.invisible * { visibility:hidden !important; }
+.ui-page.visible { visibility:visible; } 
+
+/*** fonts ***/
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url('./fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'), 
+         url('./fonts/OpenSans-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'OpenSans-SemiBold';
+    src: url('./fonts/OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'), 
+         url('./fonts/OpenSans-SemiBold.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Montserrat-Light';
+	src: url('./fonts/Montserrat-Light.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Montserrat-Medium';
+	src: url('./fonts/Montserrat-Medium.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Montserrat-Regular';
+	src: url('./fonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+
+/*** z-index ***/
+.masterinstance, .label, .image, .richtext, .table, .cell, .rectangle, .dynamicpanel, .text, .password, .textarea, .checkbox, .radiobutton, .date, .time, .datetime, .file, .selectionlist, .dropdown, .nativedropdown, .radiobuttonlist, .checkboxlist, .tree, .treenode, .menu, .menunode, .datagrid, .datalist, .headerrow, .datarow, .datacell, .gridcell, .summary, .index, .texttable, .textcell, .line, .multiselectionlist, .button, .imagemap, .html, .url, .document, .flash, .website, .ellipse, .callout, .line, .triangle, .shapewrapper { z-index: 2; }
+
+/*** text-overflow ***/
+ .dropdown .value .nativedropdown .value, .text input, .password input, .date input, .time input, .datetime input, .file input { white-space: nowrap; text-overflow: ellipsis; }
+.multiline{white-space:normal;}
+
+/*** table ***/
+.table table:first-child { width: 100%; height: 100%; }
+.table .cellContainerChild { position: relative; width: 100%; height: 100%; }
+
+/*** image, imagemap ***/
+.image svg, .image img { width:100%; height: 100%; position: absolute; top: 0px; left: 0px; }
+.image .imageViewport { width: 100%; height: 100%; }
+
+/*** menu ***/
+.menu { cursor: default; font-size:0; }
+.menu .menunode { overflow: hidden; box-sizing:border-box; }
+.menunode span { position: relative; display:table-cell; }  /* fix "display: table-cells" internal padding */
+.menunode .menuIconWrapper { position: relative; display:table-cell; vertical-align:middle;}
+.menu .menuWrapper { overflow: hidden; width: 100%; height: 100%;}
+.menu.horizontal {white-space: nowrap; }
+.menu.horizontal .menunode { height: 100%; }
+.menunode .content .valign {display:table; height:100%;}
+.menunode .content {display: table; width: 100%; height: 100%;}
+.submenu .menunode .borderLayer {position:initial;}
+_:-ms-fullscreen, :root .submenu .menunode .borderLayer {position:relative;}
+.submenu { display: none; position: absolute; top: 0; left: 100%; z-index: 100; }
+.menunodeicon { padding-right: 5px; vertical-align: inherit; }
+.menunode { position: relative; white-space: nowrap; padding: 0 0px; cursor: default; }
+div.firer.menunode { pointer-events: auto; }
+.menunode span { cursor: inherit; }
+.submenu .menunode.has-submenu .content .valign > span { margin-right: 15px; }
+.menunode .submenuicon { position: absolute; right: 5px; top: calc(50% - 4px); width: 9px; height: 7px; background: transparent url("../images/common/arrow-submenu.png") no-repeat 0 0 scroll; }
+.layout > .menu .menuWrapper { display: inline-block; position: absolute; }
+
+/*** html widgets ***/
+.html, .document, .url, .website, .flash { overflow: hidden;}
+.url video{width:100%;height:100%;object-fit:contain;background-color:black;}
+
+/*** cellcontainer ***/
+.cellcontainer { overflow: hidden; }
+
+/*** input components ***/
+input { border:0px; }
+.checkbox input { position: absolute; left: 0px; top: 0px; }
+.layout.vertical > .checkbox input, .layout.horizontal > .checkbox input { position: static; }
+.date, .time, .datetime, .file { position: relative; } /* offset parent for icon */
+.text input, .password input, .date input, .time input, .datetime input, .file input { vertical-align: inherit; width: 100%; background-color: transparent; cursor: inherit; z-index: 3; } /* enforce z-index in date/time picker, fix "display: table-cells" internal padding */
+.date .icon, .time .icon, .datetime .icon { position: absolute; right: -24px; cursor: pointer; width: 18px; height: 18px; background-color: transparent; background-repeat: no-repeat; background-position: right center; background-attachment: scroll; }
+.date .icon { background-image: url("../images/common/date.gif"); }
+.datacell .date .icon[name][readonly] { display: none; }
+.time .icon { background-image: url("../images/common/time.gif"); }
+.datacell .time .icon[name][readonly] { display: none; }
+.datetime .icon { background-image: url("../images/common/date-time.gif"); }
+.datacell .datetime .icon[name][readonly] { display: none; }
+.file { margin-right: 70px; }
+.file .borderLayer { overflow: auto; }
+.file .icon, .file-input { position: absolute; right: -71px; top: 50%; transform: translate(0px, -50%); }
+.file .icon { width: 66px; height: 19px; background: transparent url("../images/common/browse-enabled.gif") no-repeat left center scroll; }
+.file .icon[readonly] { background-image: url("../images/common/browse-disabled.gif"); }
+.file .file-input { overflow: hidden; z-index: 2; cursor: pointer; border: none; width: 66px; height: 19px; opacity: 0; -ms-filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0); filter: alpha(opacity=0); }
+.datacell .file .icon[name][readonly], .datacell .file .file-input[name][disabled] { display: none; }
+.radiobutton { border: none; vertical-align: top; font-size: 10px; height: 13px; width: 13px; }
+.textarea textarea { border: 0px; overflow: auto; resize: none; width:100%; height:100%; background: none repeat scroll 0 0 transparent; }
+
+ /*** date/timepicker - overwrite jquery.ui ***/
+.ui-datepicker.ui-widget { font-size: 0.7em; }
+.ui-datepicker-trigger { display: none; }
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd{ margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+/*** selection list ***/
+.selectionlist, .multiselectionlist { white-space: nowrap; }
+.selectionlist .paddingLayer, .multiselectionlist .paddingLayer { display: table; }
+.selectionlist .scroll, .multiselectionlist .scroll { position: absolute; overflow: auto; height:100%; width:100%; text-decoration: inherit; box-sizing:border-box;}
+
+/*** checkboxlist/radiobuttonlist ***/
+.checkboxlist, .radiobuttonlist { white-space: nowrap; }
+.checkboxlist .option, .radiobuttonlist .option { vertical-align: middle; margin: 0 0 0 3px; }
+.checkboxlist input, .radiobuttonlist input { vertical-align: middle; }
+.checkboxlist .paddingLayer, .radiobuttonlist .paddingLayer { display: table; }
+.checkboxlist .scroll, .radiobuttonlist .scroll { position: absolute; overflow: auto; height:100%; width:100%; text-decoration: inherit; box-sizing:border-box;}
+.checkbox.nonMobile { width: 13px; height: 13px; }
+
+
+/*** dropdown ***/
+.dropdown { position: relative; }
+.dropdown .value { width: calc(100% - 18px); }
+.dropdown .icon { width: 100%; background: transparent url("../images/common/dropdown-enabled.png") right center no-repeat scroll; background-position-x: calc(100% - 5px); }
+.dropdown[readonly] .icon { background-image: url("../images/common/dropdown-disabled.png"); }
+.dropdown .dropdown-options { opacity: 0.0001; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter: alpha(opacity=0); 
+                    position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; cursor: pointer; text-overflow: ellipsis; white-space: nowrap; background-color: inherit;
+                    color: inherit; text-align: inherit; text-decoration: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; }
+
+/*** native dropdown ***/
+.nativedropdown { position: relative; overflow: hidden; height:20px; }
+.nativedropdown .value { width:inherit; visibility:hidden; }
+.nativedropdown .dropdown-options { padding:1px; position: relative; cursor: pointer; text-overflow: ellipsis; white-space: nowrap; }
+.nativedropdown .content { position: absolute; }
+
+/*** panel ***/
+.layoutWrapper { position:absolute; box-sizing:border-box; width:100%; height:100%; overflow:auto; }
+.layoutWrapper .ghostHLayout { overflow: visible !important; }
+.masterinstance .dynamicpanel div.firer.panel { transform: none !important; } 
+div.firer.dynamicpanel > div.firer.panel { box-sizing: content-box; }
+div.firer.panel > .backgroundLayer, div.firer.panel > .borderLayer { width: inherit; height: inherit;}
+
+/*** group ***/
+.group { position: relative; pointer-events: none; display: contents; }
+.group .firer { pointer-events: auto; }
+_:-ms-fullscreen, :root div.group { position: static; }
+
+/*** datalist ***/
+.datarow input { border: none; }
+.datacell { overflow: hidden; }
+.datalist table:first-child { width: 100%; height: 100%; }
+.datacell > .cellContainerChild > .backgroundLayer:first-child { width: inherit; height: inherit; }
+.datalist > .borderLayer > .paddingLayer > table { width: 100%; height: 100%; }
+.datalist .cellContainerChild { position: relative; width: 100%; height: 100%; }
+.datalist .cellContainerChild > .backgroundLayer { z-index: 0; }
+
+/*** datagrid ***/
+.datagrid table:first-child { width: 100%; height: 100%; } /* not working! ajax? */
+.datagrid .gridcell { width: 100%; height: 100%; }
+.gridcell > .cellContainerChild > .backgroundLayer:first-child { width: inherit; height: inherit; }
+.datagrid .cellContainerChild { position: relative; width: 100%; height: 100%; }
+
+/*** index ***/
+.index span { margin: 0px 3px 0px 3px; cursor: default; }
+.index span.current { font-weight: bold; }
+
+/*** richtext, textcell ***/
+.shapewrapper .content, .richtext .content,.rectangle .content, .textcell .content, .label .content, .text .content, .password .content, .date .content, .time .content, .datetime .content, .dropdown .content, .button .content, .summary .content, .index .content, .file .content, .ui-scenario .Note .content { width:100%; height: 100%; min-height: inherit; display: table; table-layout:fixed; word-wrap:break-word;overflow: hidden;}
+.shapewrapper.autofit .content, .richtext.autofit .content,.rectangle.autofit .content, .textcell.autofit .content, .label.autofit .content,.button.autofit .content, .summary.autofit .content, .index.autofit .content, .ui-scenario .Note .content { width:auto;}
+.shapewrapper.autofit .valign, .richtext.autofit .valign,.rectangle.autofit .valign, .textcell.autofit .valign, .label.autofit .valign,.button.autofit .valign, .summary.autofit .valign, .index.autofit .valign {white-space:nowrap;}
+
+/* .richtext .paddingLayer, .rectangle .paddingLayer, .label .paddingLayer, .button .paddingLayer, .ui-scenario .Note .paddingLayer { display: table; position: relative; } */
+.richtext.autofit .borderLayer, .rectangle.autofit .borderLayer, .label.autofit .borderLayer, .button.autofit .borderLayer, .summary.autofit .borderLayer, .index.autofit .borderLayer, .ui-scenario .Note.autofit .borderLayer { position: initial; }
+.richtext.manualfit .borderLayer, .rectangle.manualfit .borderLayer, .label.manualfit .borderLayer, .button.manualfit .borderLayer, .ui-scenario .Note.manualfit .borderLayer { position: initial; }
+_:-ms-fullscreen, :root .richtext.autofit .borderLayer, _:-ms-fullscreen, :root .rectangle.autofit .borderLayer, _:-ms-fullscreen, :root .label.autofit .borderLayer, _:-ms-fullscreen, :root .button.autofit .borderLayer, _:-ms-fullscreen, :root .summary.autofit .borderLayer, _:-ms-fullscreen, :root .index.autofit .borderLayer, _:-ms-fullscreen, :root .ui-scenario .Note.autofit .borderLayer { position: relative; }
+.shapewrapper .paddingLayer { position: absolute;}
+.layout.vertical > * > .clipping { display: inline-block; }
+
+/*** tree ***/
+.tree { list-style: none;}
+.tree ul { list-style: none; overflow: auto; }
+.tree > ul { position: absolute; }
+.tree li { list-style: none; }
+.tree table { width: 100%; }
+.tree li.closed ul { display:none; }
+.tree li.open .nodecontent img.open { display: inline; }
+.tree li.closed .nodecontent img.open { display: none; } 
+.tree li.open .nodecontent img.closed, .tree li.leaf .nodecontent img.closed { display: none; }
+.tree li.closed .nodecontent img.closed { display: inline; }
+.tree li.last.leaf .treeicon { display: none; }
+.tree li.leaf .treeicon { background-image: none !important; }
+.tree.withlines li { background-image: url("../images/common/treeline.gif"); background-repeat: repeat-y; }
+.tree.withlines li.last { background-image: url("../images/common/lastnode.gif"); background-repeat: no-repeat; }
+.tree.withlines li.last.leaf .treeicon { display: table-cell; background-image: none !important; background-repeat: no-repeat; }
+.tree.withlines li.leaf .treeicon { background-image: url("../images/common/leafnode.gif") !important; background-repeat: no-repeat; }
+.tree .cellContainerChild { position: relative; width: 100%; height: 100%; }
+.tree .cellContainerChild .borderLayer { position: relative; width: auto; height: auto; white-space: nowrap; }
+.tree > .borderLayer > .paddingLayer { overflow-y: auto; }
+
+/*** alignment ***/
+.valign { display: table-cell; vertical-align: inherit; text-align: inherit; }
+.dropdown .paddingLayer, .dropdown .borderLayer, .dropdown .content { vertical-align: inherit; }
+.layout { height: 100%; width: 100%; position: relative; }
+.textcell > .cellContainerChild > .borderLayer > .paddingLayer > .clipping { height: inherit; width: inherit; position: relative; box-sizing: border-box;}
+table.layout { overflow: auto; height: 100%; width: 100%;} /* overflow: auto --> chrome bug: allow scrollbars */
+td.layout {font-size: 0; width: 100%; height: 100%;}
+td.layout > * { vertical-align: inherit; }
+td.layout.horizontal.verticalWrap.wrap { white-space: nowrap;}
+td.layout.horizontal { white-space: nowrap; }
+td.layout.horizontal.wrap { white-space: normal; }
+.verticalWrapper > img, .verticalWrapper > input {display: block;}
+td.layout.horizontal .richtext, td.layout.horizontal .textcell { white-space: normal; } /* exceptions are richtext and textcell */
+td.layout.horizontal > * { display: inline-block; position:relative;}
+td.layout.vertical > * { display: block; position:relative;}
+td.layout.vertical > .autofit { display: table; position:relative;}/*fix for autofit*/
+td.layout.vertical > .datagrid { display: table; }
+td.layout > *.hidden { display: none; }
+.layout.vertical > * > .clipping { display: inline-block; }
+
+#simulation td.layout.horizontal > .manualfit {display:inline-grid;}
+#simulation .manualfit {display: grid;}
+#simulation .textcell.manualfit {display: table-cell;}
+#simulation .menu.horizontal .menunode.manualfit { display: inline-block; }
+#simulation .menu.horizontal .menunode.manualfit.hidden { display: none;}
+.group > .manualfit, .masterinstance > .manualfit {display:grid;}
+
+
+
+.verticalWrapper > div { transform: rotate(0deg); } 
+.freeLayout {font-size: 0; position: relative; width: 100%; height: 100%;}
+
+td.layout .panel.firer:first-child > .backgroundLayer { width: inherit; height: inherit; } 
+td.layout .panel.firer:first-child > .borderLayer { width: inherit; height: inherit; }
+
+/*** box-sizing ***/
+.percentage.rectangle.firer, .percentage.image.firer { box-sizing: border-box; }
+
+/*** spacing ***/
+.ghostHLayout {position:relative; height: inherit; overflow:hidden;}
+
+/*** selected lists ***/
+.selected {background-color: #3399FF !important; color: #FFFFFF !important; cursor: inherit;}
+
+/*** hostpot ***/
+.clickableSpot {width: 100%; height: 100%;}
+
+/*** SVG ***/
+foreignObject, svg, .shapewrapper, .shapewrapper .paddingLayer {pointer-events:none;}
+/* .shapewrapper {overflow:hidden;} */
+.shapewrapper .content {pointer-events:none;position:absolute;}
+.shapewrapper svg {position:absolute;left:0px;top:0px;}
+.shapewrapper svg .shape {position:relative;}
+ellipse, path{pointer-events:visiblepainted;}
+clipPath path{pointer-events:none;}
+.shapert-clipping > .content {width:100%;height:100%;}
+
+/*** masterinstance ***/
+#jim-body #simulation div.masterinstance div.scrollable div.firer,
+#jim-body #simulation div.masterinstance div.scrollable div.shapewrapper,
+#jim-body #simulation div.masterinstance div.menu .menunode,
+#jim-body #simulation div.masterinstance div.tree .treenode,
+#jim-body #simulation div.masterinstance div.datagrid div.firer,
+#jim-body #simulation div.masterinstance div.datalist div.firer,
+#jim-body #simulation div.masterinstance div.shapewrapper div.paddingLayer div.firer {
+	transform: rotate(0deg);
+}
+#jim-body #simulation div.masterinstance div.group.firer {
+	transform: none;
+}
+_:-ms-fullscreen, :root div.masterinstance { position: static; }
+.relativeLayoutWrapper > .relativeLayoutWrapperResponsive { position: absolute; pointer-events: none; }
+.relativeLayoutWrapper { pointer-events: none; }
+
+/*** VML ***/
+.vml {behavior: url(#default#VML)}
+
+/*** Background Layer ***/
+.backgroundLayer {z-index: -1; position: absolute; width: 100%; height: 100%; overflow:hidden;}
+.shapewrapper > .backgroundLayer {display:none;}
+.colorLayer, .imageLayer {position: absolute; width: 100%; height: 100%; top:0; left:0;pointer-events:none;}
+.borderLayer { box-sizing: border-box; position: absolute; width: 100%; height: 100%; overflow: hidden;}
+.clipping > .content {width: 100%; height: 100%; box-sizing: border-box;}
+.gridcell > .layout, .datacell > .layout, .cellcontainer > .layout { box-sizing: border-box; }
+.gridcell > .backgroundLayer, .datacell > .backgroundLayer { width: inherit; height: inherit; }
+.gridcell > .borderLayer { position:relative; height: inherit; }
+.datacell > .borderLayer {height: 100%; position: relative;}
+.paddingLayer { width:100%; height:100%; box-sizing:border-box; /* position:absolute; */ }
+
+/*** url ***/
+@supports (-webkit-overflow-scrolling: touch) {
+  .html, .document, .url, .website, .flash { overflow: scroll; -webkit-overflow-scrolling: touch; pointer-events: auto !important; }
+}
+
+div.firer {pointer-events: none; border: 0px solid transparent; /* this is the new margin */}
+div.firer > * {pointer-events: auto; box-sizing: border-box;}
+.shapewrapper .content .valign {pointer-events: none;} 
+#simulation, .canvas {pointer-events: auto !important;}
