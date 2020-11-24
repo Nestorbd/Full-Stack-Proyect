@@ -12,10 +12,10 @@ available, but you will not be able to place any order.
 
 ## 🚩 Table of Contents
 
-* [Data model](#-Data-Model)
-* [User Requirements](#-User-Requirements)
-* [Use Case](#-Use-Case)
-* [Interfaces](#-Interfaces)
+* [Data model](#Data-Model)
+* [User Requirements](#User-Requirements)
+* [Use Case](#Use-Case)
+* [Interfaces](#Interfaces)
 * [Tools](#-Tools)
 * [Spanish Documentation](#-Spanish-Documentation)
 * [Acknowledgments](#-Acknowledgments)
@@ -40,7 +40,7 @@ Here will be shown how the project database is organized.
 * The user can register or log in if he has a google account.
 
 ## Use Case
-
+![Use Case](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/UseCase.png)
 ## Interfaces
 
 ### Mockup
