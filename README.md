@@ -24,10 +24,10 @@ available, but you will not be able to place any order.
 Here will be shown how the project database is organized.
 
 ### E/R Diagram
-
+![E/R Diagram](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/E_R_Diagram.png)
 
 ### Relational Model
-
+![Relational Model](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/RelationalModel.png)
 
 [SQL](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/DB_e_comerce.sql)
 
