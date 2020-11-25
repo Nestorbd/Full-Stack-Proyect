@@ -116,7 +116,7 @@ If the user does not fill in these fields correctly, they will be warned that
 they are correct so that you can correct them.
 
 
-* [Prototype](https://github.com/Nestorbd/Full-Stack-Proyect/tree/master/E-commerce/Doncumentation/FullStack_Prototype)
+* [Prototype](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/FullStack_Prototype)
 
 ### Usability
 
