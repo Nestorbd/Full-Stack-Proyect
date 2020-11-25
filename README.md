@@ -155,4 +155,4 @@ to sell Canarian products.
 
 * [Meganitrospeed](https://github.com/Meganitrospeed)
 * [Sergio Peñate](https://github.com/SergioPA11)
-* [Oswaldo J. Pérez Luis](https://github.com/LilGalois) -- Thanks for teaching me LaTex 
+* [Oswaldo J. Pérez Luis](https://github.com/LilGalois) -- Thanks for teaching me LaTeX 
