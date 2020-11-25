@@ -77,8 +77,8 @@ fix them you will not be able to log in or register.
 ![main screen with registered user](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/mockup/Inicio_loged.png)
 *Figure 4: main screen with registered user*
 
-When the user logs in it will return to this main screen, but now in
-instead of a login tab we will find the cart and the per l of the user.
+When the user logs in it will return to this main screen, but now 
+instead of a login tab we will find the cart and the profile of the user.
 
 ![Product Display](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/mockup/product_view.png)
 *Figure 5: Product Display*
@@ -106,7 +106,7 @@ it will give the edit rofile button.
 ![display for adding or modifying user data](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/mockup/Update.png)
 *Figure 8: display for adding or modifying user data*
 
-When the user wants to change or add data to his per l will be redirected to this
+When the user wants to change or add data to his profile will be redirected to this
 page, where you can fill in all the data related to the user.
 
 ![failure to add or modify user data](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/mockup/Fail_update.png)
