@@ -16,6 +16,7 @@ available, but you will not be able to place any order.
 * [User Requirements](#User-Requirements)
 * [Use Case](#Use-Case)
 * [Interfaces](#Interfaces)
+* [Planning](https://github.com/Nestorbd/Full-Stack-Proyect/projects/1)
 * [Tools](#-Tools)
 * [Spanish Documentation](#-Spanish-Documentation)
 * [Acknowledgments](#-Acknowledgments)
@@ -137,6 +138,8 @@ data from those you have entered is erroneous.
 As seen in the mockup and the prototype will use a basic color palette
 (yellow, white, blue, black) based on the Canary Flag as it was used
 to sell Canarian products.
+
+## [Planning](https://github.com/Nestorbd/Full-Stack-Proyect/projects/1)
 
 ## 🔧 Tools
 
