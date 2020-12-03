@@ -52,11 +52,28 @@
 
 \section{Introducción}
 \quad Este proyecto se desarrollara para la empresa Tandem Enterprise.\\
-El proyecto propuesto por la empresa consiste en implementar una idea de comercio orientada a los productos canarios. En la aplicación se podrán ver, crear, actualizar y eliminar productos de procedencia canaria.\\También habrá usuarios que se tendrán que registrar para poder realizar un pedido. Si un usuario no se ha registrado o no ha iniciado sesión solo podra ver los productos que hay disponibles, pero no podra realizar ningún pedido.
+El proyecto propuesto por la empresa consiste en implementar una idea de comercio orientada a los productos canarios. En la aplicación se podrán ver, crear, actualizar y eliminar productos de procedencia canaria.\\También habrá usuarios, que se tendrán que registrar para poder realizar un pedido. Si un usuario no se ha registrado o no ha iniciado sesión solo podra ver los productos que hay disponibles, pero no podra realizar ningún pedido.\\ Al usuario se le pedira los datos necesarios para poder realizar la compra(nombre, email, contraseña y direccion).\\
+Por ahora, la empresa nos ha pedido que lleguemos hasta la pantalla de compra, asi que no se pediran datos relacionados con la cuenta bancaria ni con targetas de credito o debito.
 \section{Modelo de Datos}
 \quad Aqui se mostrara como esta organizada la base de datos del proyecto.
+\subsection{Descripción}
+\begin{itemize}
+    \item \textbf{Entidades} \\\\
+En la base de datos tendra que tener los siguientes campos:
+\begin{itemize}
+    \item Usuarios, que tendra una clave, un nombre, apellido, email, contraseña y tambien se tendra que saber si es administrador o no.
+    \item Direccion del usuario, se almacenara la direccion de cada usuario, y se devera tener, una clave, la calle, numero, codigo postal, localidad, provincia y pais.
+    \item Pedidos, se almacenara una clave, la fecha, precio total y estado. 
+    \item Productos, se almacenara una clave, un nombre, la descripción, precio, porcentaje de impuestos, categoria, saber si esta disponible y una imagen del producto.
+\end{itemize}
+\item \textbf{Relaciones} 
+\begin{itemize}
+    \item Un usuario solo puede tener una direccion y una direccion puede pertenecer a varios usuarios. 
+    \item Un usuario puede hacer varios pedidos, pero un pedido pertenece solo a un usuario.
+    \item Un pedido puede tener varios productos y un producto puede estar en varios pedidos.
+\end{itemize}
+\end{itemize}
 \subsection{Diagrama E/R}
-\vspace{10mm}
 \tikzset{basic/.style={
         draw,
         rectangle split,
@@ -297,13 +314,30 @@ node[midway](tiene){};
 );
 
 \section{Requisitos de usuario}
-\begin{itemize}
+\begin{enumerate}
+	\item Plataforma
+		\begin{enumerate}
+		\item Aplicación web
+		\item Responsive, se podra ver en cualquier dispositivo que tenga internet y un navegador.
+		\end{enumerate}
+	\item Solo se llegara hasta la pantalla de compra por ahora. 
     \item El usuario no registrado solo podra ver los productos.
-    \item Solo se podra acceder al carrito si el usuario esta registrado.
+		\begin{enumerate}
+		\item Si el usuario no registrado intenta hacer una accion que requiere registro, se le llevara a la pantalla donde podra iniciar sesion o registrarse.
+		\item Para el registro solo se pedira nombre, email y contraseña, estos dos ultimas se tendran que confirmar para evitar confuciones.
+		\item Si el usuario no completa correctamente algún campo se le notificara.
+        \end{enumerate}
+\newpage
     \item Para poder hacer una compra se necesita la direccion de envio.
+		\begin{enumerate}
+		\item Si el usuario intenta hacer una compra sin tener una direccion de envio se le pedira.
+		\item Igualmente, si tiene direccion de envio, se devera confirmar que el usuario quiere usar esa direccion para la compra.
+		\end{enumerate}
     \item El usuario podra actualizar sus datos en el perfil.
-    \item El usuario podra registrarse o iniciar sesion si tiene cuenta de google.
-\end{itemize}
+		\begin{enumerate}
+		\item Podra actualizar cualquier dato, pero en el caso del email y la contraseña si los quiere cambiar tendra que confirmarlos como se hace en el registro.
+		\end{enumerate}
+\end{enumerate}
 
 \section{Casos de uso}
 \begin{center}

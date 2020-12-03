@@ -26,4 +26,19 @@ export class HomePage implements OnInit{
       this.product = products;
         })
   }
+
+  deleteProduct(id: number){
+    this.productService.deleteProduct(id).subscribe( () => {
+      this.getAllProducts();
+    })
+  }
+  createProduct(){
+    this.productService.setIsUpdateProduct(false);
+    this.router.navigateByUrl("/create-update-product");
+  }
+  updateProduct(id: number){
+    this.productService.setIsUpdateProduct(true);
+    this.productService.setCurrentProductId(id);
+    this.router.navigateByUrl("/create-update-product")
+  }
 }

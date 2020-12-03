@@ -4,11 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SignInPageRoutingModule } from './sign-in-routing.module';
+import { CreateUpdateProductPageRoutingModule } from './create-update-product-routing.module';
 
-import { SignInPage } from './sign-in.page';
-
-import { IonicStorageModule } from '@ionic/storage';
+import { CreateUpdateProductPage } from './create-update-product.page';
 
 @NgModule({
   imports: [
@@ -16,9 +14,8 @@ import { IonicStorageModule } from '@ionic/storage';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    SignInPageRoutingModule,
-    IonicStorageModule.forRoot()
+    CreateUpdateProductPageRoutingModule
   ],
-  declarations: [SignInPage]
+  declarations: [CreateUpdateProductPage]
 })
-export class SignInPageModule {}
+export class CreateUpdateProductPageModule {}

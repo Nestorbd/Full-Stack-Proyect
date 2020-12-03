@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-sign-in',
@@ -43,7 +44,13 @@ export class SignInPage implements OnInit {
       }
       this.userService.signIn(user)
       .subscribe((res) => {
+        if(!res.access_token) {
+          console.log("no token");
+          return;
+        }
         this.router.navigateByUrl("/home");
+        this.SignInForm.reset();
+        this.SignUpForm.reset();
       })
     }
   }
@@ -59,9 +66,11 @@ export class SignInPage implements OnInit {
         email: this.SignUpForm.value.email,
         password: this.SignUpForm.value.password
       }
-      this.userService.addUser(user)
+      this.userService.signUp(user)
       .subscribe((res) => {
         this.router.navigateByUrl("/home");
+        this.SignInForm.reset();
+        this.SignUpForm.reset();
       })
     }
   }

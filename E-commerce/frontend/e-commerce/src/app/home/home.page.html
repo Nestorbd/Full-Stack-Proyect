@@ -37,8 +37,11 @@
      Cantidad: {{p.quantity}} unidades <br/><br />
      Descripción: <br />{{p.description}}
     </ion-card-content>
-
+    <ion-item>
+      <ion-icon (click)="deleteProduct(p.id)" name="trash" slot="end"></ion-icon>
+      <ion-icon (click)="updateProduct(p.id)" name="create-outline" slot="end"></ion-icon>
+    </ion-item>
   </ion-card>
-
+  <ion-button (click)="createProduct()"  expand="block">Añadir Producto</ion-button>
   
 </ion-content>

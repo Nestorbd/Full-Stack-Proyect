@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">E-Commerce</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/sign-in">Sign In</a>
+          </li>
+          
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<h1>Create Product</h1>
+<form [formGroup]="productForm" (ngSubmit)="onFormSubmitCreateUpdate()">
+   
+  <ion-item>
+    <ion-label position="floating">Name</ion-label>
+    <ion-input formControlName="name" type="text" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-input formControlName="description" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Price</ion-label>
+    <ion-input formControlName="price" type="number" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Tax_rate</ion-label>
+    <ion-input formControlName="tax_rate" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Img</ion-label>
+    <ion-input formControlName="img" type="HTMLInputElement"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Category</ion-label>
+    <ion-input formControlName="category" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Quantity</ion-label>
+    <ion-input formControlName="quantity" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Available</ion-label>
+    <ion-checkbox checked slot="start"></ion-checkbox>
+  </ion-item>
+  
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit"  shape="full" expand="block">Create</ion-button>
+    </ion-col>
+  </ion-row>
+</form>
+</ion-content>

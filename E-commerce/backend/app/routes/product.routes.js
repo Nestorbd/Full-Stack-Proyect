@@ -11,7 +11,7 @@ module.exports = app => {
     router.get("/", product.findAll);
 
     // Retrieve a single Product with id
-    router.get("/:id", auth.isAuthenticated, product.findOne);
+    router.get("/:id", product.findOne);
   
     // Update a Product with id
     router.put("/:id", auth.isAuthenticated, product.update);
