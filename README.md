@@ -34,12 +34,37 @@ Here will be shown how the project database is organized.
 
 ## User Requirements
 
-* The unregistered user will only be able to view the products.
-* The cart can only be accessed if the user is registered.
-* To make a purchase you need the shipping address.
-* The user can update their data in the profile.
-* The user can register or log in if he has a google account.
+1.  Plataform.
 
+
+      a)  Web application.
+      
+      b)  Responsive, it can be seen on any device that has internet and a browser.
+  
+  
+2.  It will only reach the purchase screen for now.
+
+3.  The unregistered user will only be able to view the products.
+
+      a)  If the unregistered user tries to do an action that requires registration, you will be taken to the screen where you can log in or register.  
+      b)  For registration you will only ask for name, email and password, these last two they will have to be confirmed to avoid confuciations.  
+      c)  If the user does not complete a field correctly, they will be notified. 
+  
+  
+4.  To make a purchase you need the shipping address.
+
+
+      a)  If the user tries to make a purchase without having a shipping address he will ask.
+      
+      b)  Also, if you have a shipping address, you must confirm that the user he wants to use that address for the purchase.
+  
+  
+5.  The user can update their data in the profile.
+
+
+      a)  You can update any data, but in the case of email and password if you want to change them you will have to confirm them as it is done in the registry.
+  
+  
 ## Use Case
 ![Use Case](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/UseCase.png)
 ## Interfaces
@@ -131,7 +156,7 @@ structure and operation are very similar to those used in others
 websites dedicated to commerce such as amazon and ebay.
 
 * Error prediction
-As seen in figure 3 or figure 9, the user is noticed if some
+As seen in figure [3](*Figure-3:-failed-to-log-in-/-register-user*) or figure [9](*Figure-9:-failure-to-add-or-modify-user-data*), the user is noticed if some
 data from those you have entered is erroneous.
 
 * Elegant in its design
