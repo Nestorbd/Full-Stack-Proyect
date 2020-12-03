@@ -24,6 +24,31 @@ available, but you will not be able to place any order.
 ## Data Model
 Here will be shown how the project database is organized.
 
+### Overview
+Here will be shown how the project database is organized.
+
+1.    **Entities**
+
+In the database you will need to have the following fields:
+
+a)    Users, who will have a key, a first name, last name, email,sigue  contract na ytambien you will have to know if it is administrator or not.
+
+b)    Address of the user, the address of each user will be stored, and if you will have, a key, the street, number, postal code, town, province and country.
+
+c)    Orders, a key, date, total price and status will be stored.
+
+d)    Products, it will store a key, a name, the description on,price, tax percentage, category, know if it is available and an image of the product.
+    
+    
+2.    **Relatioships**
+
+a)    A user can only have one address and one address can belong to multiple users.
+
+b)    A user can place multiple orders, but an order belongs only to a user.
+
+c)    An order can have several products, and a product can be onseveral orders.
+
+
 ### E/R Diagram
 ![E/R Diagram](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/E_R_Diagram.png)
 
