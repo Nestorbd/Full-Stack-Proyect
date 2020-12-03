@@ -156,7 +156,7 @@ structure and operation are very similar to those used in others
 websites dedicated to commerce such as amazon and ebay.
 
 * Error prediction
-As seen in figure [3](*Figure-3:-failed-to-log-in-/-register-user*) or figure [9](*Figure-9:-failure-to-add-or-modify-user-data*), the user is noticed if some
+As seen in figure 3 or figure 9, the user is noticed if some
 data from those you have entered is erroneous.
 
 * Elegant in its design
