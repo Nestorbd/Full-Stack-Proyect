@@ -27,30 +27,50 @@ Here will be shown how the project database is organized.
 ### Overview
 Here will be shown how the project database is organized.
 
-1.    **Entities**
+* **Entities**
 
-In the database you will need to have the following fields:
+    In the database you will need to have the following fields:
 
-a)    Users, who will have a key, a first name, last name, email,sigue  contract na ytambien you will have to know if it is administrator or not.
+    - Users, who will have a key, a first name, last name, email,sigue  contract na ytambien you will have to know if it is administrator or not.
 
-b)    Address of the user, the address of each user will be stored, and if you will have, a key, the street, number, postal code, town, province and country.
+    - Address of the user, the address of each user will be stored, and if you will have, a key, the street, number, postal code, town, province and country.
 
-c)    Orders, a key, date, total price and status will be stored.
+     - Orders, a key, date, total price and status will be stored.
 
-d)    Products, it will store a key, a name, the description on,price, tax percentage, category, know if it is available and an image of the product.
+    - Products, it will store a key, a name, the description on,price, tax percentage, category, know if it is available and an image of the product.
     
     
-2.    **Relatioships**
+* **Relatioships**
 
-a)    A user can only have one address and one address can belong to multiple users.
+  - A user can only have one address and one address can belong to multiple users.
 
-b)    A user can place multiple orders, but an order belongs only to a user.
+  - A user can place multiple orders, but an order belongs only to a user.
 
-c)    An order can have several products, and a product can be onseveral orders.
+  - An order can have several products, and a product can be onseveral orders.
 
 
 ### E/R Diagram
 ![E/R Diagram](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/E_R_Diagram.png)
+
+### Step from E/R to relational model
+Bold words are primary keys and those with an asterisk are foreign keys.
+
+* PRODUCTS (**id**, name, description, price,tax rate, image, category, availability).
+
+* ORDER_PRODUCT (**id_product***,**id_order***,timestamp).
+
+  - id_product is PRODUCTS foreign key.
+  - id_order is ORDERS foreign key.
+
+* ORDERS (**id**, date, total, status, timestamp, id_user*).
+
+  - id_user is USERS foreign key.
+
+* USERS (**id**, name, last_name, email, password, isAdmin, timestamp, id_address*).
+
+   - id_address is ADDRESS foreign key.
+
+* ADDRESS (**id**, street, number, zip_code, location, province, country).
 
 ### Relational Model
 ![Relational Model](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/RelationalModel.png)
