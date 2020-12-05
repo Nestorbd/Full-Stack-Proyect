@@ -79,35 +79,29 @@ Bold words are primary keys and those with an asterisk are foreign keys.
 
 ## User Requirements
 
-1.  Plataform.
+* Plataform.
 
+    - Web application.
+    - Responsive, it can be seen on any device that has internet and a browser.
+  
+* It will only reach the purchase screen for now.
 
-      a)  Web application.
-      
-      b)  Responsive, it can be seen on any device that has internet and a browser.
+* The unregistered user will only be able to view the products.
+
+    - If the unregistered user tries to do an action that requires registration, you will be taken to the screen where you can log in or register.  
+    - For registration you will only ask for name, email and password, these last two they will have to be confirmed to avoid confuciations.  
+    - If the user does not complete a field correctly, they will be notified. 
   
   
-2.  It will only reach the purchase screen for now.
+* To make a purchase you need the shipping address.
 
-3.  The unregistered user will only be able to view the products.
-
-      a)  If the unregistered user tries to do an action that requires registration, you will be taken to the screen where you can log in or register.  
-      b)  For registration you will only ask for name, email and password, these last two they will have to be confirmed to avoid confuciations.  
-      c)  If the user does not complete a field correctly, they will be notified. 
+    - If the user tries to make a purchase without having a shipping address he will ask.
+    - Also, if you have a shipping address, you must confirm that the user he wants to use that address for the purchase.
   
   
-4.  To make a purchase you need the shipping address.
+* The user can update their data in the profile.
 
-
-      a)  If the user tries to make a purchase without having a shipping address he will ask.
-      
-      b)  Also, if you have a shipping address, you must confirm that the user he wants to use that address for the purchase.
-  
-  
-5.  The user can update their data in the profile.
-
-
-      a)  You can update any data, but in the case of email and password if you want to change them you will have to confirm them as it is done in the registry.
+    - You can update any data, but in the case of email and password if you want to change them you will have to confirm them as it is done in the registry.
   
   
 ## Use Case
