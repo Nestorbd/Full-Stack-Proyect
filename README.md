@@ -16,6 +16,7 @@ available, but you will not be able to place any order.
 * [User Requirements](#User-Requirements)
 * [Use Case](#Use-Case)
 * [Interfaces](#Interfaces)
+* [Planning](https://github.com/Nestorbd/Full-Stack-Proyect/projects/1)
 * [Tools](#-Tools)
 * [Spanish Documentation](#-Spanish-Documentation)
 * [Acknowledgments](#-Acknowledgments)
@@ -23,8 +24,53 @@ available, but you will not be able to place any order.
 ## Data Model
 Here will be shown how the project database is organized.
 
+### Overview
+Here will be shown how the project database is organized.
+
+* **Entities**
+
+    In the database you will need to have the following fields:
+
+    - Users, who will have a key, a first name, last name, email,sigue  contract na ytambien you will have to know if it is administrator or not.
+
+    - Address of the user, the address of each user will be stored, and if you will have, a key, the street, number, postal code, town, province and country.
+
+     - Orders, a key, date, total price and status will be stored.
+
+    - Products, it will store a key, a name, the description on,price, tax percentage, category, know if it is available and an image of the product.
+    
+    
+* **Relatioships**
+
+  - A user can only have one address and one address can belong to multiple users.
+
+  - A user can place multiple orders, but an order belongs only to a user.
+
+  - An order can have several products, and a product can be onseveral orders.
+
+
 ### E/R Diagram
 ![E/R Diagram](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/E_R_Diagram.png)
+
+### Step from E/R to relational model
+Bold words are primary keys and those with an asterisk are foreign keys.
+
+* PRODUCTS (**id**, name, description, price,tax rate, image, category, availability).
+
+* ORDER_PRODUCT (**id_product***,**id_order***,timestamp).
+
+  - id_product is PRODUCTS foreign key.
+  - id_order is ORDERS foreign key.
+
+* ORDERS (**id**, date, total, status, timestamp, id_user*).
+
+  - id_user is USERS foreign key.
+
+* USERS (**id**, name, last_name, email, password, isAdmin, timestamp, id_address*).
+
+   - id_address is ADDRESS foreign key.
+
+* ADDRESS (**id**, street, number, zip_code, location, province, country).
 
 ### Relational Model
 ![Relational Model](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/RelationalModel.png)
@@ -33,12 +79,31 @@ Here will be shown how the project database is organized.
 
 ## User Requirements
 
-* The unregistered user will only be able to view the products.
-* The cart can only be accessed if the user is registered.
-* To make a purchase you need the shipping address.
-* The user can update their data in the profile.
-* The user can register or log in if he has a google account.
+* Plataform.
 
+    - Web application.
+    - Responsive, it can be seen on any device that has internet and a browser.
+  
+* It will only reach the purchase screen for now.
+
+* The unregistered user will only be able to view the products.
+
+    - If the unregistered user tries to do an action that requires registration, you will be taken to the screen where you can log in or register.  
+    - For registration you will only ask for name, email and password, these last two they will have to be confirmed to avoid confuciations.  
+    - If the user does not complete a field correctly, they will be notified. 
+  
+  
+* To make a purchase you need the shipping address.
+
+    - If the user tries to make a purchase without having a shipping address he will ask.
+    - Also, if you have a shipping address, you must confirm that the user he wants to use that address for the purchase.
+  
+  
+* The user can update their data in the profile.
+
+    - You can update any data, but in the case of email and password if you want to change them you will have to confirm them as it is done in the registry.
+  
+  
 ## Use Case
 ![Use Case](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/UseCase.png)
 ## Interfaces
@@ -77,8 +142,8 @@ fix them you will not be able to log in or register.
 ![main screen with registered user](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/mockup/Inicio_loged.png)
 *Figure 4: main screen with registered user*
 
-When the user logs in it will return to this main screen, but now in
-instead of a login tab we will find the cart and the per l of the user.
+When the user logs in it will return to this main screen, but now 
+instead of a login tab we will find the cart and the profile of the user.
 
 ![Product Display](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/mockup/product_view.png)
 *Figure 5: Product Display*
@@ -106,7 +171,7 @@ it will give the edit rofile button.
 ![display for adding or modifying user data](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/mockup/Update.png)
 *Figure 8: display for adding or modifying user data*
 
-When the user wants to change or add data to his per l will be redirected to this
+When the user wants to change or add data to his profile will be redirected to this
 page, where you can fill in all the data related to the user.
 
 ![failure to add or modify user data](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/mockup/Fail_update.png)
@@ -116,7 +181,7 @@ If the user does not fill in these fields correctly, they will be warned that
 they are correct so that you can correct them.
 
 
-* [Prototype](https://github.com/Nestorbd/Full-Stack-Proyect/tree/master/E-commerce/Doncumentation/FullStack_Prototype)
+* [Prototype](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/FullStack_Prototype)
 
 ### Usability
 
@@ -138,6 +203,8 @@ As seen in the mockup and the prototype will use a basic color palette
 (yellow, white, blue, black) based on the Canary Flag as it was used
 to sell Canarian products.
 
+## [Planning](https://github.com/Nestorbd/Full-Stack-Proyect/projects/1)
+
 ## 🔧 Tools
 
 * [LaTex](https://es.overleaf.com) -- To do the documentation
@@ -155,3 +222,4 @@ to sell Canarian products.
 
 * [Meganitrospeed](https://github.com/Meganitrospeed)
 * [Sergio Peñate](https://github.com/SergioPA11)
+* [Oswaldo J. Pérez Luis](https://github.com/LilGalois) -- Thanks for teaching me LaTeX 
