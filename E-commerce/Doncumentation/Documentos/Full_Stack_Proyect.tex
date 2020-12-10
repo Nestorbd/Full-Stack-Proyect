@@ -154,6 +154,18 @@ child[grow=right,level distance=3cm] {node[attribute] {timestamp}};
 
 \end{tikzpicture}
 
+\subsection{Paso de E/R a Modelo relacional}
+\quad Las palabras subrayadas son claves primarias y las que tienen asterisco son claves foraneas.\\
+\textsc{Products} (\underline{\textbf{id}}, name, description, price,tax\_rate, image, category, availability).\\\\
+\textsc{Order\_product} (\underline{\textbf{id\_product*}}, \underline{\textbf{id\_order*}}, timestamp).\\
+\textbf{id\_product} es clave foranea de \textsc{products}.\\
+\textbf{id\_order} es clave foranea de \textsc{orders}.\\\\
+\textsc{Orders} (\underline{\textbf{id}}, date, total, status, timestamp, \textbf{id\_user*}).\\
+\textbf{id\_user*} es clave foranea de \textsc{users}.\\\\
+\textsc{Users} (\underline{\textbf{id}}, name, last\_name, email, password, isAdmin, timestamp, \textbf{id\_address*}).\\
+\textbf{id\_address} es clave foranea de \textsc{address}.\\\\
+\textsc{Address} (\underline{\textbf{id}},street,number,zip\_code, location, province, country).
+
 \subsection{Modelo Relacional}
 \tikzset{basic2/.style={
         draw,

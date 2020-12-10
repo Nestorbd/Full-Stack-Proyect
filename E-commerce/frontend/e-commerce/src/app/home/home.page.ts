@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../models/product';
 import { ProductService } from '../services/product.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +11,9 @@ import { ProductService } from '../services/product.service';
 })
 export class HomePage implements OnInit{
 
+  
   product: Product[];
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(private productService: ProductService,private userService: UserService,private router: Router) {}
 
   ngOnInit() {
     this.getAllProducts();
@@ -41,4 +43,5 @@ export class HomePage implements OnInit{
     this.productService.setCurrentProductId(id);
     this.router.navigateByUrl("/create-update-product")
   }
+
 }

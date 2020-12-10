@@ -48,18 +48,20 @@ export class SignInPage implements OnInit {
           console.log("no token");
           return;
         }
-        this.router.navigateByUrl("/home");
-        this.SignInForm.reset();
-        this.SignUpForm.reset();
+        this.router.navigateByUrl("home");
+      //   this.router.navigateByUrl("home").then( () =>{
+      //     location.reload();
+      //   });
       })
     }
   }
 
   onFormSubmitSignUp(){
+    
     if(!this.SignUpForm.valid){
       return false;
     } else {
-      let user = {
+      let user: User = {
         id: null,
         name: this.SignUpForm.value.name,
         username: this.SignUpForm.value.username,
@@ -68,9 +70,9 @@ export class SignInPage implements OnInit {
       }
       this.userService.signUp(user)
       .subscribe((res) => {
-        this.router.navigateByUrl("/home");
-        this.SignInForm.reset();
-        this.SignUpForm.reset();
+        this.router.navigateByUrl("home").then( () =>{
+          location.reload();
+        });
       })
     }
   }

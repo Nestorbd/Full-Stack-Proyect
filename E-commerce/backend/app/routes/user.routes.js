@@ -10,11 +10,14 @@ module.exports = app => {
     // Retrieve all User
     router.get("/", auth.isAuthenticated, users.findAll);
     
-    // Retrieve a single User with id
-    router.get("/:id", auth.isAuthenticated, users.findOne);
+    // Retrieve a single User with username
+    router.get("/:username", auth.isAuthenticated, users.findOneByUserName);
+
+    // Compare usersnames
+    router.get("/compare/:username", auth.isAuthenticated, users.compareUsersNames);
   
     // Update a User with id
-    router.put("/:id", auth.isAuthenticated, users.update);
+    router.put("/:username", auth.isAuthenticated, users.update);
 
     // Sign in
     router.post("/signin", auth.signin);

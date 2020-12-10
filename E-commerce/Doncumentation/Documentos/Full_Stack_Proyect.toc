@@ -3,8 +3,9 @@
 \contentsline {section}{\numberline {2}Modelo de Datos}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Descripción}{3}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Diagrama E/R}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Modelo Relacional}{5}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}SQL}{6}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.3}Paso de E/R a Modelo relacional}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Modelo Relacional}{5}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}SQL}{6}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Requisitos de usuario}{7}{section.3}%
 \contentsline {section}{\numberline {4}Casos de uso}{8}{section.4}%
 \contentsline {section}{\numberline {5}Funcionamiento}{8}{section.5}%
