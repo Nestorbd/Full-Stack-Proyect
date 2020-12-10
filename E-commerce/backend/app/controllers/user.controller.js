@@ -78,7 +78,7 @@ exports.findAll = (req, res) => {
 };
 
 // Find a single User with an id
-exports.findOne = (req, res) => {
+exports.findOneByID = (req, res) => {
   const id = req.params.id;
 
   User.findByPk(id)
@@ -92,6 +92,41 @@ exports.findOne = (req, res) => {
     });
 };
 
+// Find a single User with a username
+exports.findOneByUserName = (req,res) => {
+const username = req.params.username;
+
+  User.findOne( { where: { username: username} })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving User with username=" + username
+      });
+    });
+}
+
+// Compare if username already exists
+exports.compareUsersNames = (req,res) => {
+const username = req.user.username;
+
+User.findOne({ where: { username: username } })
+.then(data => {
+  if(data){
+  res.send(true)
+  }
+  else{
+    res.send(false)
+  }
+})
+.catch(err => {
+  res.status(500).send({
+    message: "Error retrieving User with username=" + username
+  });
+});
+
+}
 // Update a User by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
@@ -168,7 +203,7 @@ exports.findUserByUsernameAndPassword = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving tutorials."
+          err.message || "Some error occurred while retrieving user."
       });
     });
 };

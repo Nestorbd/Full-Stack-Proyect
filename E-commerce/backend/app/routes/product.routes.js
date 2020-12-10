@@ -8,10 +8,10 @@ module.exports = app => {
     router.post("/", auth.isAuthenticated, product.create);
   
     // Retrieve all Product
-    router.get("/", auth.isAuthenticated, product.findAll);
+    router.get("/", product.findAll);
 
     // Retrieve a single Product with id
-    router.get("/:id", auth.isAuthenticated, product.findOne);
+    router.get("/:id", product.findOne);
   
     // Update a Product with id
     router.put("/:id", auth.isAuthenticated, product.update);

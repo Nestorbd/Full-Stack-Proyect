@@ -29,7 +29,7 @@ module.exports = (sequelize, Sequelize) => {
           allowNull: true
       },
       availability: {
-          type: Sequelize.BOOLEAN,
+          type: Sequelize.NUMBER,
           allowNull: false
       }
     }, { timestamps: false});

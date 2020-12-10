@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>Sign In</h1>
+  <form [formGroup]="SignInForm" (ngSubmit)="onFormSubmitSignIn()">
+   
+    <ion-item>
+      <ion-label position="floating">UserName</ion-label>
+      <ion-input formControlName="username" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">password</ion-label>
+      <ion-input formControlName="password" type="password" required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit"  shape="full" expand="block">Sign In</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  <h1>Sign Up</h1>
+  <form [formGroup]="SignUpForm" (ngSubmit)="onFormSubmitSignUp()">
+   
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input formControlName="name" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">UserName</ion-label>
+      <ion-input formControlName="username" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Confirm email</ion-label>
+      <ion-input formControlName="confirmEmail" type="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">password</ion-label>
+      <ion-input formControlName="password" type="password" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Confirm password</ion-label>
+      <ion-input formControlName="confirmPassword" type="password" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>I agree with the terms of use and privacy</ion-label>
+      <ion-checkbox></ion-checkbox>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit"  shape="full" expand="block">Sign Up</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  
+</ion-content>

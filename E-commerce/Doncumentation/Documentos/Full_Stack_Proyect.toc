@@ -1,6 +1,7 @@
 \babel@toc {spanish}{}
 \contentsline {section}{\numberline {1}Introducción}{3}{section.1}%
 \contentsline {section}{\numberline {2}Modelo de Datos}{3}{section.2}%
+<<<<<<< HEAD
 \contentsline {subsection}{\numberline {2.1}Diagrama E/R}{3}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Modelo Relacional}{4}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}SQL}{5}{subsection.2.3}%
@@ -21,3 +22,27 @@
 \contentsline {section}{\numberline {11}Planificación}{12}{section.11}%
 \contentsline {section}{\numberline {12}Conclusiones, opiniones y reflexiones}{13}{section.12}%
 \contentsline {section}{\numberline {13}Enlaces y referencias}{13}{section.13}%
+=======
+\contentsline {subsection}{\numberline {2.1}Descripción}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Diagrama E/R}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Paso de E/R a Modelo relacional}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Modelo Relacional}{5}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}SQL}{6}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Requisitos de usuario}{7}{section.3}%
+\contentsline {section}{\numberline {4}Casos de uso}{8}{section.4}%
+\contentsline {section}{\numberline {5}Funcionamiento}{8}{section.5}%
+\contentsline {section}{\numberline {6}Interfaces}{8}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Mockup}{8}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Usabilidad}{12}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Manuales}{13}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Instalación para desarrolladores}{13}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Instalación para tecnicos}{13}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Usuarios}{13}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Ayudas}{13}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Pila tecnológica}{13}{section.8}%
+\contentsline {section}{\numberline {9}Comparación de tecnologias}{14}{section.9}%
+\contentsline {section}{\numberline {10}Repositorios}{14}{section.10}%
+\contentsline {section}{\numberline {11}Planificación}{14}{section.11}%
+\contentsline {section}{\numberline {12}Conclusiones, opiniones y reflexiones}{14}{section.12}%
+\contentsline {section}{\numberline {13}Enlaces y referencias}{14}{section.13}%
+>>>>>>> feature/basic-frontend
