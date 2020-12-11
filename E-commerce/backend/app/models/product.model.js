@@ -9,11 +9,11 @@ module.exports = (sequelize, Sequelize) => {
           allowNull: true
       },
       price: {
-          type: Sequelize.NUMBER,
+          type: Sequelize.INTEGER,
           allowNull: false
       },
       tax_rate: {
-          type: Sequelize.NUMBER,
+          type: Sequelize.FLOAT,
           allowNull: true
       },
       image: {
@@ -25,11 +25,11 @@ module.exports = (sequelize, Sequelize) => {
           allowNull: true
       },
       quantity: {
-          type: Sequelize.NUMBER,
+          type: Sequelize.INTEGER,
           allowNull: true
       },
       availability: {
-          type: Sequelize.NUMBER,
+          type: Sequelize.INTEGER,
           allowNull: false
       }
     }, { timestamps: false});
