@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
 import { Storage } from '@ionic/storage';
-
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -11,8 +11,7 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-user: User;
-  constructor(private userService: UserService,private router: Router, private storage: Storage) { }
+  constructor(private userService: UserService,private router: Router, private storage: Storage,  private alertController: AlertController) { }
 
   ngOnInit() {
     this.getUser();
@@ -37,11 +36,25 @@ user: User;
 
  // }
 
- getUser(){
-   this.userService.findActualUser().then(user => {
-     console.log("getUser");
-     console.log(user);
-     return user;
-   })
- }
+ getUser() {
+  this.userService.findActualUser().subscribe(user => { 
+     document.getElementById("user-name").innerText = user.name;
+     document.getElementById("user-username").innerText = user.username;
+     document.getElementById("user-email").innerText = user.email;
+  }),err => {
+    this.presentAlert("Error", "get user");
+  };
+}
+
+async presentAlert(message: string, origin: string) {
+  const alert = await this.alertController.create({
+    cssClass: 'my-custom-class',
+    header: 'Error',
+    subHeader: message,
+    message: 'Could not ' + origin + '. Try again.',
+    buttons: ['OK']
+  });
+
+  await alert.present();
+}
 }

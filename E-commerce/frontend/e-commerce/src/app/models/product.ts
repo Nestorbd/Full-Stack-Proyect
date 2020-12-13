@@ -4,7 +4,7 @@ export class Product {
     description: string;
     price: number;
     tax_rate: number;
-    img: HTMLImageElement;
+    img: string;
     category: string;
     quantity: number;
     available: boolean;

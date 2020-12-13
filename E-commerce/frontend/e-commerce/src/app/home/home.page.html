@@ -6,7 +6,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card *ngFor="let p of product">
+  <ion-card *ngFor="let p of product" (click)="viewProduct(p.id)">
     <ion-card-header>
       <ion-card-subtitle>{{p.category}}</ion-card-subtitle>
       <ion-card-title>{{p.name}}</ion-card-title>
@@ -17,11 +17,11 @@
      Cantidad: {{p.quantity}} unidades <br/><br />
      Descripción: <br />{{p.description}}
     </ion-card-content>
-    <ion-item>
-      <ion-icon (click)="deleteProduct(p.id)" name="trash" slot="end"></ion-icon>
-      <ion-icon (click)="updateProduct(p.id)" name="create-outline" slot="end"></ion-icon>
+    <ion-item id="ud-product">
+      <ion-icon (click)="deleteProduct(p.id)" name="trash" slot="end" ></ion-icon>
+      <ion-icon (click)="updateProduct(p.id)" name="create-outline" slot="end" ></ion-icon>
     </ion-item>
   </ion-card>
-  <ion-button (click)="createProduct()"  expand="block">Añadir Producto</ion-button>
+  <ion-button (click)="createProduct()"  expand="block" id="add-product">ADD PRODUCT</ion-button>
   
 </ion-content>

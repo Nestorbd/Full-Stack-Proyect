@@ -22,7 +22,7 @@
     </ion-row>
   </form>
   <h1>Sign Up</h1>
-  <form [formGroup]="SignUpForm" (ngSubmit)="onFormSubmitSignUp()">
+  <form [formGroup]="SignUpForm" (ngSubmit)="validateSignUp()">
    
     <ion-item>
       <ion-label position="floating">Name</ion-label>
@@ -31,14 +31,17 @@
     <ion-item>
       <ion-label position="floating">UserName</ion-label>
       <ion-input formControlName="username" type="text" required></ion-input>
+      <span class="errors-message" id="username-match">This username already exists</span>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Email</ion-label>
       <ion-input formControlName="email" type="email" required></ion-input>
+      <span class="errors-message" id="email-match">This email already exists</span>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Confirm email</ion-label>
       <ion-input formControlName="confirmEmail" type="email" required></ion-input>
+      <span class="errors-message" id="email-confirm-match">Emails do not match</span>
     </ion-item>
     <ion-item>
       <ion-label position="floating">password</ion-label>
@@ -47,10 +50,12 @@
     <ion-item>
       <ion-label position="floating">Confirm password</ion-label>
       <ion-input formControlName="confirmPassword" type="password" required></ion-input>
+      <span class="errors-message" id="password-confirm-match">Passwords do not match</span>
     </ion-item>
     <ion-item>
-      <ion-label>I agree with the terms of use and privacy</ion-label>
-      <ion-checkbox></ion-checkbox>
+      <ion-label> I agree with the terms of use and privacy</ion-label>
+      <ion-checkbox formControlName="termsAgree" slot="start" [(ngModel)]="checked" (onChange)="onChangeChecked()"></ion-checkbox>
+      <span class="errors-message" id="check-terms-use">Check the use terms</span>
     </ion-item>
     <ion-row>
       <ion-col>

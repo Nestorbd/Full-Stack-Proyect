@@ -47,15 +47,29 @@ export class AppComponent {
       this.storage.get("username").then(username =>{
         document.getElementById("userDropdown").innerText = username;
         document.getElementById("userDropdown").style.display = "block";
+        document.getElementById("sign-in").style.display = "none";
       });
     //  let username = this.userService.getCurrentUserName();
     //  document.getElementById("userDropdown").innerText = username;
     //  document.getElementById("userDropdown").style.display = "block";
+    //  document.getElementById("sign-up").style.display = "none";
         return true;
-      } 
-      console.log("NO Logeado")
-      document.getElementById("userDropdown").style.display = "none";
-      return false;
+      } else{
+        console.log("NO Logeado")
+        document.getElementById("userDropdown").style.display = "none";
+        document.getElementById("sign-in").style.display = "block";
+        return false;
+      }
+      
     })
+  }
+
+  darkTheme(event){
+    if(event.detail.checked){
+      document.body.setAttribute('color-theme','dark');
+    }else{
+      document.body.setAttribute('color-theme','light');
+    }
+    
   }
 }

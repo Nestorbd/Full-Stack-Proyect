@@ -1,20 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngFor="let u of user"> 
+<ion-content > 
+  <br/>
+  <ion-title>Profile</ion-title>
+  <br/>
   <ion-item>
     <ion-label>name:</ion-label>
-    <ion-label>{{u.name}}</ion-label>
+    <ion-label id="user-name"></ion-label>
   </ion-item>
   <ion-item>
     <ion-label>username:</ion-label>
-    <ion-label>{{u.username}}</ion-label>
+    <ion-label id="user-username"></ion-label>
   </ion-item>
   <ion-item>
     <ion-label>email:</ion-label>
-    <ion-label>{{u.email}}</ion-label>
+    <ion-label id="user-email"></ion-label>
   </ion-item>
 </ion-content>

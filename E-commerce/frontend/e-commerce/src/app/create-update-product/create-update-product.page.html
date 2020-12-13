@@ -25,7 +25,7 @@
   </ion-item>
   <ion-item>
     <ion-label position="floating">Img</ion-label>
-    <ion-input formControlName="img" type="HTMLInputElement"></ion-input>
+    <ion-input formControlName="img" type="text"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Category</ion-label>
@@ -37,12 +37,12 @@
   </ion-item>
   <ion-item>
     <ion-label>Available</ion-label>
-    <ion-checkbox checked slot="start"></ion-checkbox>
+    <ion-checkbox formControlName="available" slot="start" [(ngModel)]="checked" (onChange)="onChangeChecked()"></ion-checkbox>
   </ion-item>
   
   <ion-row>
     <ion-col>
-      <ion-button type="submit"  shape="full" expand="block">Create</ion-button>
+      <ion-button type="submit"  shape="full" expand="block" id="create-update"></ion-button>
     </ion-col>
   </ion-row>
 </form>
