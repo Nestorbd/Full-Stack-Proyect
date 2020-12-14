@@ -61,7 +61,7 @@ Por ahora, la empresa nos ha pedido que lleguemos hasta la pantalla de compra, a
     \item \textbf{Entidades} \\\\
 En la base de datos tendra que tener los siguientes campos:
 \begin{itemize}
-    \item Usuarios, que tendra una clave, un nombre, apellido, email, contraseña y tambien se tendra que saber si es administrador o no.
+    \item Usuarios, que tendra una clave, un nombre, apellido, email, nombre de usuario, contraseña y tambien se tendra que saber si es administrador o no.
     \item Direccion del usuario, se almacenara la direccion de cada usuario, y se devera tener, una clave, la calle, numero, codigo postal, localidad, provincia y pais.
     \item Pedidos, se almacenara una clave, la fecha y estado. 
     \item Productos, se almacenara una clave, un nombre, la descripción, precio, porcentaje de impuestos, categoria, saber si esta disponible y una imagen del producto.
@@ -117,6 +117,7 @@ status};
 \underline{id}\\
 name\\
 last\_name\\
+userName\\
 email\\
 password\\
 isAdmin};
@@ -161,7 +162,7 @@ child[grow=right,level distance=3cm] {node[attribute] {timestamp}};
 \textbf{id\_order} es clave foranea de \textsc{orders}.\\\\
 \textsc{Orders} (\underline{\textbf{id}}, date, status, timestamp, \textbf{id\_user*}).\\
 \textbf{id\_user*} es clave foranea de \textsc{users}.\\\\
-\textsc{Users} (\underline{\textbf{id}}, name, last\_name, email, password, isAdmin, timestamp, \textbf{id\_address*}).\\
+\textsc{Users} (\underline{\textbf{id}}, name, last\_name,userName, email, password, isAdmin, timestamp, \textbf{id\_address*}).\\
 \textbf{id\_address} es clave foranea de \textsc{address}.\\\\
 \textsc{Address} (\underline{\textbf{id}},street,number,zip\_code, location, province, country).
 
@@ -216,6 +217,7 @@ timestamp TIMESTAMP\\
 \textcolor{primaryKey}{(PK)} id INT\\
 name STRING\\
 last\_name STRING\\
+userName STRING\\
 email STRING\\
 password STRING\\
 isAdmin BOOLEAN\\
@@ -267,9 +269,23 @@ node[midway](tiene){};
 \phantom{abc} price \textsc{\textcolor{sentence}{float not null}},\\
  \phantom{abc} tax\_rate \textsc{\textcolor{sentence}{float default \textcolor{numberSQL}{7} not null}},\\
 \phantom{abc} image \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(500)}}},\\
+\phantom{abc} quantity \textsc{\textcolor{sentence}{int}},\\
 \phantom{abc} category \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(50)}}},\\
  \phantom{abc} availability \textsc{\textcolor{sentence}{boolean not null}}\\);\\\\
- \textsc{\textcolor{sentence}{drop table if exists}} address;\\
+ 
+\textsc{\textcolor{sentence}{drop table if exists}} users;\\
+\textsc{\textcolor{sentence}{create table}} users (\\
+\phantom{abc} id \textsc{\textcolor{sentence}{int primary key auto\_increment}},\\
+\phantom{abc} name \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(100)} not null}},\\
+\phantom{abc} last\_name \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(100)} not null}},\\
+\phantom{abc} userName \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(100)} not null}},\\
+\phantom{abc} email \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(100)}}},\\
+\phantom{abc} password \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(500)}}},\\
+\phantom{abc} isAdmin \textsc{\textcolor{sentence}{boolean default false}},\\
+\phantom{abc} timestamp \textsc{\textcolor{sentence}{timestamp}}\\
+);\\\\
+
+\textsc{\textcolor{sentence}{drop table if exists}} address;\\
  \textsc{\textcolor{sentence}{create table}} address (\\
   \phantom{abc} id \textsc{\textcolor{sentence}{int primary key auto\_increment}},\\
    \phantom{abc} street \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(200)}  not null}},\\
@@ -277,22 +293,12 @@ node[midway](tiene){};
    \phantom{abc} zip\_code \textsc{\textcolor{sentence}{int not null}},\\
    \phantom{abc} location \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(50)} not null}},\\
    \phantom{abc} province \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(50)} not null}},\\
-   \phantom{abc} country \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(50)} not null}}\\);\\\\
-\textsc{\textcolor{sentence}{drop table if exists}} users;\\
-\textsc{\textcolor{sentence}{create table}} users (\\
-\phantom{abc} id \textsc{\textcolor{sentence}{int primary key auto\_increment}},\\
-\phantom{abc} name \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(100)} not null}},\\
-\phantom{abc} last\_name \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(100)} not null}},\\
-\phantom{abc} email \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(100)}}},\\
-\phantom{abc} password \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(500)}}},\\
-\phantom{abc} id\_address \textsc{\textcolor{sentence}{int not null}},\\
-\phantom{abc} isAdmin \textsc{\textcolor{sentence}{boolean default false}},\\
-
-\phantom{abc} timestamp \textsc{\textcolor{sentence}{timestamp}},\\\\
-\phantom{abc} \textsc{\textcolor{sentence}{foreign key}} (id\_address) \textsc{\textcolor{sentence}{references}} address(id)\\
+   \phantom{abc} country \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(50)} not null}}\\
+   \phantom{abc} id\_user \textsc{\textcolor{sentence}{int not null}},\\\\
+\phantom{abc} \textsc{\textcolor{sentence}{foreign key}} (id\_user) \textsc{\textcolor{sentence}{references}} users(id)\\
 \phantom{abc} \textsc{\textcolor{sentence}{on update cascade}}\\
-\phantom{abc} \textsc{\textcolor{sentence}{on delete  cascade}}\\
-);
+\phantom{abc} \textsc{\textcolor{sentence}{on delete  cascade}}
+   );
 
 \newpage
 
