@@ -3,7 +3,7 @@ const utils = require('../../utils');
 const bcrypt = require('bcryptjs');
 
 const db = require("../models");
-const User = db.user;
+const User = db.users;
 
 exports.signin = (req, res) => {
   const user = req.body.username;
@@ -16,7 +16,7 @@ exports.signin = (req, res) => {
       message: "Username or Password required."
     });
   }
-
+console.log(user);
   // return 401 status if the credential is not match.
   User.findOne({ where: { username: user } })
     .then(data => {

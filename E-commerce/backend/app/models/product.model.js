@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const Product = sequelize.define("product", {
+    const Product = sequelize.define("products", {
         name: {
             type: Sequelize.STRING,
             allowNull: false
@@ -33,6 +33,14 @@ module.exports = (sequelize, Sequelize) => {
           allowNull: false
       }
     }, { timestamps: false});
+
+    Product.associate = function(models) {
+        Product.belongsToMany(models.products, {
+            through: "orderProduct",
+            foreignKey: "id_product",
+            as: "products"
+          });
+      }
 
     return Product;
 };

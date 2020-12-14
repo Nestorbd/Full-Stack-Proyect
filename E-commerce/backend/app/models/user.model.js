@@ -1,6 +1,14 @@
 module.exports = (sequelize, Sequelize) => {
-    const User = sequelize.define("user", {
+    const User = sequelize.define("users", {
         name: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        last_name: {
+            type: Sequelize.STRING,
+            allowNull: true
+        },
+        username: {
             type: Sequelize.STRING,
             allowNull: false
         },
@@ -12,16 +20,20 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
-        username: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
         isAdmin: {
             type: Sequelize.BOOLEAN,
             allowNull: true
         }
     },
     { timestamps: false});
+
+    User.associate = function(models) {
+        User.hasMany(models.orders, {
+          foreignKey: "id_user",
+          as: "users"
+        });
+    }
+    
 
     return User;
 };

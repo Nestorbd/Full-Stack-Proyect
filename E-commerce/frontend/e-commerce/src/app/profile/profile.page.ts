@@ -39,6 +39,7 @@ export class ProfilePage implements OnInit {
  getUser() {
   this.userService.findActualUser().subscribe(user => { 
      document.getElementById("user-name").innerText = user.name;
+     document.getElementById("user-last-name").innerText = user.lastName;
      document.getElementById("user-username").innerText = user.username;
      document.getElementById("user-email").innerText = user.email;
   }),err => {

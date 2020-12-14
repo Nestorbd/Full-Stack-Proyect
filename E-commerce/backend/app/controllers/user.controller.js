@@ -1,13 +1,15 @@
 const db = require("../models");
-const User = db.user;
+const User = db.users;
+const Order = db.orders;
+const Address = db.addresses;
 const Op = db.Sequelize.Op;
 const utils = require("../../utils");
-const  bcrypt  =  require('bcryptjs');
+const bcrypt = require('bcryptjs');
 
 // Create and Save a new User
 exports.create = (req, res) => {
   //Validate request
-  if (!req.body.password || !req.body.username) {
+  if (!req.body.password || !req.body.email || !req.body.name || !req.body.username) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
@@ -19,6 +21,8 @@ exports.create = (req, res) => {
     name: req.body.name,
     password: req.body.password,
     username: req.body.username,
+    email: req.body.email,
+    last_name: req.body.last_name,
     isAdmin: req.body.isAdmin ? req.body.isAdmin : false
   };
 
@@ -65,7 +69,25 @@ exports.create = (req, res) => {
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {
 
-  User.findAll()
+  User.findAll(
+  //   {
+  //   include: [{
+  //     model: addresses,
+  //     as: 'Address',
+  //     through: {
+  //       attributes: []
+  //     }
+  //   },
+  //   {
+  //     model: orders,
+  //     as: 'Orders',
+  //     through: {
+  //       attributes: []
+  //     }
+  //   }
+  //   ]
+  // }
+  )
     .then(data => {
       res.send(data);
     })
@@ -81,7 +103,25 @@ exports.findAll = (req, res) => {
 exports.findOneByID = (req, res) => {
   const id = req.params.id;
 
-  User.findByPk(id)
+  User.findByPk(id,
+  //   {
+  //   include: [{
+  //     model: addresses,
+  //     as: 'Address',
+  //     through: {
+  //       attributes: []
+  //     }
+  //   },
+  //   {
+  //     model: orders,
+  //     as: 'Orders',
+  //     through: {
+  //       attributes: []
+  //     }
+  //   }
+  //   ]
+  // }
+  )
     .then(data => {
       res.send(data);
     })
@@ -93,38 +133,78 @@ exports.findOneByID = (req, res) => {
 };
 
 // Find a single User with a username
-exports.findOneByUserName = (req,res) => {
-const username = req.params.username;
+exports.findOneByUserName = (req, res) => {
+  const username = req.params.username;
 
-  User.findOne( { where: { username: username} })
+  User.findOne({ where: { username: username } },
+  //   {
+  //   include: [{
+  //     model: addresses,
+  //     as: 'Address',
+  //     through: {
+  //       attributes: []
+  //     }
+  //   },
+  //   {
+  //     model: orders,
+  //     as: 'Orders',
+  //     through: {
+  //       attributes: []
+  //     }
+  //   }
+  //   ]
+  // }
+  )
     .then(data => {
       res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving User with email=" + email
+      });
+    });
+}
+
+// Compare if email already exists
+exports.compareUsersEmail = (req, res) => {
+  const email = req.params.email;
+
+  User.findOne({ where: { email: email } })
+    .then(data => {
+      if (data) {
+        res.send(true)
+      }
+      else {
+        res.send(false)
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving User with email=" + email
+      });
+    });
+
+}
+
+
+// Compare if username already exists
+exports.compareUserName = (req, res) => {
+  const username = req.params.username;
+
+  User.findOne({ where: { username: username } })
+    .then(data => {
+      if (data) {
+        res.send(true)
+      }
+      else {
+        res.send(false)
+      }
     })
     .catch(err => {
       res.status(500).send({
         message: "Error retrieving User with username=" + username
       });
     });
-}
-
-// Compare if username already exists
-exports.compareUsersNames = (req,res) => {
-const username = req.user.username;
-
-User.findOne({ where: { username: username } })
-.then(data => {
-  if(data){
-  res.send(true)
-  }
-  else{
-    res.send(false)
-  }
-})
-.catch(err => {
-  res.status(500).send({
-    message: "Error retrieving User with username=" + username
-  });
-});
 
 }
 // Update a User by the id in the request
@@ -152,58 +232,95 @@ exports.update = (req, res) => {
     });
 };
 
-// // Delete a User with the specified id in the request
-// exports.delete = (req, res) => {
-//   const id = req.params.id;
+// Delete a User with the specified id in the request
+exports.delete = (req, res) => {
+  const id = req.params.id;
 
-//   User.destroy({
-//     where: { id: id }
-//   })
-//     .then(num => {
-//       if (num == 1) {
-//         res.send({
-//           message: "User was deleted successfully!"
-//         });
-//       } else {
-//         res.send({
-//           message: `Cannot delete User with id=${id}. Maybe User was not found!`
-//         });
-//       }
-//     })
-//     .catch(err => {
-//       res.status(500).send({
-//         message: "Could not delete User with id=" + id
-//       });
-//     });
-// };
+  User.destroy({
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "User was deleted successfully!"
+        });
+      } else {
+        res.send({
+          message: `Cannot delete User with id=${id}. Maybe User was not found!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Could not delete User with id=" + id
+      });
+    });
+};
 
-// // Find all published Tutorials
-// exports.findAllPublished = (req, res) => {
-//   User.findAll({ where: { published: true } })
+// // Find user by username and password
+// exports.findUserByUsernameAndPassword = (req, res) => {
+//   const user = req.body.username;
+//   const pwd = req.body.password;
+
+//   User.findOne({ where: { username: user, password: pwd } })
 //     .then(data => {
 //       res.send(data);
 //     })
 //     .catch(err => {
 //       res.status(500).send({
 //         message:
-//           err.message || "Some error occurred while retrieving tutorials."
+//           err.message || "Some error occurred while retrieving user."
 //       });
 //     });
 // };
 
-// Find user by username and password
-exports.findUserByUsernameAndPassword = (req, res) => {
-  const user = req.body.username;
-  const pwd = req.body.password;
+exports.addOrder = (req, res) => {
+  const orderId = req.body.orderId;
+  const userId = req.body.userId;
 
-  User.findOne({ where: { username: user, password: pwd } })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving user."
+  return User.findByPk(userId)
+    .then((user) => {
+      if (!user) {
+        console.log("user not found!");
+        return null;
+      }
+      return Order.findByPk(orderId).then((order) => {
+        if (!order) {
+          console.log("order not found!");
+          return null;
+        }
+        user.addOrder(order);
+        console.log(`>> added order id=${order.id} to user id=${user.id}`);
+        return user;
       });
+    })
+    .catch((err) => {
+      console.log(">> Error while adding order to user: ", err);
     });
-};
+}
+
+exports.addAddress = (req, res) => {
+  const userId = req.body.userId;
+  const addressId = req.body.addressId;
+
+  return User.findByPk(userId)
+    .then((user) => {
+      if (!user) {
+        console.log("user not found!");
+        return null;
+      }
+      return Address.findByPk(addressId).then((address) => {
+        if (!address) {
+          console.log("address not found!");
+          return null;
+        }
+        user.addAddress(address);
+        console.log(`>> added address id=${address.id} to user id=${user.id}`);
+        return user;
+      });
+    })
+    .catch((err) => {
+      console.log(">> Error while adding order to user: ", err);
+    });
+
+}

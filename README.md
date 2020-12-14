@@ -35,14 +35,14 @@ Here will be shown how the project database is organized.
 
     - Address of the user, the address of each user will be stored, and if you will have, a key, the street, number, postal code, town, province and country.
 
-     - Orders, a key, date, total price and status will be stored.
+     - Orders, a key, date and status will be stored.
 
     - Products, it will store a key, a name, the description on,price, tax percentage, category, know if it is available and an image of the product.
     
     
 * **Relatioships**
 
-  - A user can only have one address and one address can belong to multiple users.
+  - A user can only have one address and one address belongs to one user.
 
   - A user can place multiple orders, but an order belongs only to a user.
 
@@ -62,7 +62,7 @@ Bold words are primary keys and those with an asterisk are foreign keys.
   - id_product is PRODUCTS foreign key.
   - id_order is ORDERS foreign key.
 
-* ORDERS (**id**, date, total, status, timestamp, id_user*).
+* ORDERS (**id**, date, status, timestamp, id_user*).
 
   - id_user is USERS foreign key.
 

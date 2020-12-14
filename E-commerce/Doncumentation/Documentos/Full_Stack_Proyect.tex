@@ -63,12 +63,12 @@ En la base de datos tendra que tener los siguientes campos:
 \begin{itemize}
     \item Usuarios, que tendra una clave, un nombre, apellido, email, contraseña y tambien se tendra que saber si es administrador o no.
     \item Direccion del usuario, se almacenara la direccion de cada usuario, y se devera tener, una clave, la calle, numero, codigo postal, localidad, provincia y pais.
-    \item Pedidos, se almacenara una clave, la fecha, precio total y estado. 
+    \item Pedidos, se almacenara una clave, la fecha y estado. 
     \item Productos, se almacenara una clave, un nombre, la descripción, precio, porcentaje de impuestos, categoria, saber si esta disponible y una imagen del producto.
 \end{itemize}
 \item \textbf{Relaciones} 
 \begin{itemize}
-    \item Un usuario solo puede tener una direccion y una direccion puede pertenecer a varios usuarios. 
+    \item Un usuario solo puede tener una dirección y una dirección pertenece a un solo usuario. 
     \item Un usuario puede hacer varios pedidos, pero un pedido pertenece solo a un usuario.
     \item Un pedido puede tener varios productos y un producto puede estar en varios pedidos.
 \end{itemize}
@@ -108,7 +108,6 @@ availability};
 \nodepart{second}
 \underline{id}\\
 date\\
-total\\
 status};
 
 \node[basic,below=5cm of orders] 
@@ -148,9 +147,9 @@ child[grow=right,level distance=3cm] {node[attribute] {timestamp}};
 \node[left = 2mm of hace]{1:N};
 
 \draw (users) -- (address) node[midway,Diamond](tiene){have};
-\path [align=center, below](tiene) edge node {(\(1\),\(n\))} (users)
+\path [align=center, below](tiene) edge node {(\(1\),\(1\))} (users)
     edge node {(\(1\),\(1\))}	(address);
-\node[below = 2mm of tiene]{1:N};
+\node[below = 2mm of tiene]{1:1};
 
 \end{tikzpicture}
 
@@ -160,7 +159,7 @@ child[grow=right,level distance=3cm] {node[attribute] {timestamp}};
 \textsc{Order\_product} (\underline{\textbf{id\_product*}}, \underline{\textbf{id\_order*}}, timestamp).\\
 \textbf{id\_product} es clave foranea de \textsc{products}.\\
 \textbf{id\_order} es clave foranea de \textsc{orders}.\\\\
-\textsc{Orders} (\underline{\textbf{id}}, date, total, status, timestamp, \textbf{id\_user*}).\\
+\textsc{Orders} (\underline{\textbf{id}}, date, status, timestamp, \textbf{id\_user*}).\\
 \textbf{id\_user*} es clave foranea de \textsc{users}.\\\\
 \textsc{Users} (\underline{\textbf{id}}, name, last\_name, email, password, isAdmin, timestamp, \textbf{id\_address*}).\\
 \textbf{id\_address} es clave foranea de \textsc{address}.\\\\
@@ -205,7 +204,6 @@ availability BOOLEAN};
 \nodepart{second}
 \textcolor{primaryKey}{(PK)} id INT\\
 date DATE\\
-total FLOAT\\
 status STRING\\
 timestamp TIMESTAMP\\
 \textcolor{foreignKey}{(FK)} id\_user INT
@@ -252,7 +250,7 @@ node[midway](hay){};
    
 \draw (users) -- (address)
 node[midway](tiene){};
-\path [align=center, right](tiene) edge node {(\(1\),\(n\))} (users)
+\path [align=center, right](tiene) edge node {(\(1\),\(1\))} (users)
    edge node {(\(1\),\(1\))} (address);
 
 \end{tikzpicture}
@@ -302,8 +300,6 @@ node[midway](tiene){};
 \textsc{\textcolor{sentence}{create table}} orders (\\
 \phantom{abc} id \textsc{\textcolor{sentence}{int primary key auto\_increment}},\\
 \phantom{abc} date \textsc{\textcolor{sentence}{date not null}},\\
-\phantom{abc} total 
-\textsc{\textcolor{sentence}{float not null}},\\
 \phantom{abc} status \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(50)}}},\\
 \phantom{abc} id\_user \textsc{\textcolor{sentence}{int not null}},\\
 \phantom{abc} timestamp \textsc{\textcolor{sentence}{timestamp}},\\\\
@@ -355,19 +351,19 @@ node[midway](tiene){};
 \begin{center}
 \begin{tikzpicture}
 \begin{umlsystem}[x=4, fill=red!10]{The system}
-\umlusecase{Ver productos}
-\umlusecase[y=-3]{Hacer pedido}
-\umlusecase[x=6, y=-2, fill=green!20]{Administrar productos}
-\umlusecase[x=6, y=1, fill=green!20]{Administrar pedidos}
+\umlusecase{View Products}
+\umlusecase[y=-3]{Make a order}
+\umlusecase[x=6, y=-2, fill=green!20]{Manage products}
+\umlusecase[x=6, y=1, fill=green!20]{Manage orders}
 \end{umlsystem}
 
-\umlactor{usuario no registrado}
-\umlactor[y=-3]{usuario}
+\umlactor{user not registered}
+\umlactor[y=-3]{user}
 \umlactor[x=14, y=-1.5]{admin}
 
-\umlassoc{usuario no registrado}{usecase-1}
-\umlassoc{usuario}{usecase-1}
-\umlassoc{usuario}{usecase-2}
+\umlassoc{user not registered}{usecase-1}
+\umlassoc{user}{usecase-1}
+\umlassoc{user}{usecase-2}
 \umlassoc{admin}{usecase-3}
 \umlassoc{admin}{usecase-4}
 

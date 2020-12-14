@@ -21,6 +21,7 @@ export class SignInPage implements OnInit {
     })
     this.SignUpForm = this.fb.group({
       name: [''],
+      lastName: [''],
       username: [''],
       email: [''],
       confirmEmail: [''],
@@ -43,6 +44,7 @@ console.log(this.checked)
       let user = {
         id: null,
         name: null,
+        lastName: null,
         username: this.SignInForm.value.username,
         email: null,
         password: this.SignInForm.value.password,
@@ -78,6 +80,7 @@ console.log(this.checked)
     let user: User = {
       id: null,
       name: this.SignUpForm.value.name,
+      lastName: this.SignUpForm.value.lastName,
       username: this.SignUpForm.value.username,
       email: this.SignUpForm.value.email,
       password: this.SignUpForm.value.password,

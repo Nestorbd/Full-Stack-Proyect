@@ -13,6 +13,9 @@ module.exports = app => {
     // Retrieve a single Product with id
     router.get("/:id", product.findOne);
   
+    // Compare if exist a product with same name
+    router.get("/name/compare/:name", product.compareProductName);
+
     // Update a Product with id
     router.put("/:id", auth.isAuthenticated, product.update);
   

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.29)  10 DEC 2020 19:36
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.29)  10 DEC 2020 18:43
->>>>>>> feature/basic-frontend
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.29)  13 DEC 2020 20:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -688,11 +684,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 39.
-<<<<<<< HEAD
-<img/logoIES.png, id=119, 513.92pt x 513.92pt>
-=======
 <img/logoIES.png, id=127, 513.92pt x 513.92pt>
->>>>>>> feature/basic-frontend
 File: img/logoIES.png Graphic file (type png)
 <use img/logoIES.png>
 Package pdftex.def Info: img/logoIES.png  used on input line 42.
@@ -707,194 +699,89 @@ LaTeX Info: Redefining \% on input line 1.
 \openout5 = `Full_Stack_Proyect.toc'.
 
  [2]
-<<<<<<< HEAD
-Overfull \hbox (15.82458pt too wide) in paragraph at lines 229--230
-[][] 
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 232--263
-=======
 Underfull \hbox (badness 10000) in paragraph at lines 61--63
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 158--168
->>>>>>> feature/basic-frontend
+Underfull \hbox (badness 10000) in paragraph at lines 157--167
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 232--263
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 158--168
->>>>>>> feature/basic-frontend
+Underfull \hbox (badness 10000) in paragraph at lines 157--167
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 232--263
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 158--168
->>>>>>> feature/basic-frontend
+Underfull \hbox (badness 10000) in paragraph at lines 157--167
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 232--263
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 158--168
->>>>>>> feature/basic-frontend
+Underfull \hbox (badness 10000) in paragraph at lines 157--167
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 232--263
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 264--269
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 272--298
-=======
-Overfull \hbox (15.82458pt too wide) in paragraph at lines 258--259
+Overfull \hbox (15.82458pt too wide) in paragraph at lines 256--257
 [][] 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 261--292
+Underfull \hbox (badness 10000) in paragraph at lines 259--290
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--292
->>>>>>> feature/basic-frontend
+Underfull \hbox (badness 10000) in paragraph at lines 259--290
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 272--298
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 261--292
->>>>>>> feature/basic-frontend
+Underfull \hbox (badness 10000) in paragraph at lines 259--290
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 272--298
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 261--292
->>>>>>> feature/basic-frontend
+Underfull \hbox (badness 10000) in paragraph at lines 259--290
 
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (34.06633pt too wide) in paragraph at lines 329--330
- [] 
- []
-
-[6]
-<img/mockup/Inicio.png, id=176, 1284.8pt x 803.0pt>
-File: img/mockup/Inicio.png Graphic file (type png)
-<use img/mockup/Inicio.png>
-Package pdftex.def Info: img/mockup/Inicio.png  used on input line 336.
-(pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
-<img/mockup/Login.png, id=178, 1284.8pt x 803.0pt>
-File: img/mockup/Login.png Graphic file (type png)
-<use img/mockup/Login.png>
-Package pdftex.def Info: img/mockup/Login.png  used on input line 347.
-(pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
- [7 <e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/img/mockup/Inicio.png>]
-<img/mockup/Fail_login.png, id=187, 1284.8pt x 803.0pt>
-File: img/mockup/Fail_login.png Graphic file (type png)
-<use img/mockup/Fail_login.png>
-Package pdftex.def Info: img/mockup/Fail_login.png  used on input line 357.
-(pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
- [8 <e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/img/mockup/Login.png> <e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/img/mockup/Fail_login.png>]
-<img/mockup/Inicio_loged.png, id=196, 1284.8pt x 803.0pt>
-File: img/mockup/Inicio_loged.png Graphic file (type png)
-<use img/mockup/Inicio_loged.png>
-Package pdftex.def Info: img/mockup/Inicio_loged.png  used on input line 367.
-(pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
-<img/mockup/product_view.png, id=197, 1284.8pt x 803.0pt>
-File: img/mockup/product_view.png Graphic file (type png)
-<use img/mockup/product_view.png>
-Package pdftex.def Info: img/mockup/product_view.png  used on input line 374.
-(pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
- [9 <e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/img/mockup/Inicio_loged.png> <e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/img/mockup/product_view.png>]
-<img/mockup/cart.png, id=206, 1284.8pt x 803.0pt>
-File: img/mockup/cart.png Graphic file (type png)
-<use img/mockup/cart.png>
-Package pdftex.def Info: img/mockup/cart.png  used on input line 383.
-(pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
-<img/mockup/Profile.png, id=207, 1284.8pt x 803.0pt>
-File: img/mockup/Profile.png Graphic file (type png)
-<use img/mockup/Profile.png>
-Package pdftex.def Info: img/mockup/Profile.png  used on input line 391.
-(pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
- [10 <e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/img/mockup/cart.png> <e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/img/mockup/Profile.png>]
-<img/mockup/Update.png, id=216, 1284.8pt x 803.0pt>
-File: img/mockup/Update.png Graphic file (type png)
-<use img/mockup/Update.png>
-Package pdftex.def Info: img/mockup/Update.png  used on input line 400.
-(pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
-<img/mockup/Fail_update.png, id=217, 1284.8pt x 803.0pt>
-File: img/mockup/Fail_update.png Graphic file (type png)
-<use img/mockup/Fail_update.png>
-Package pdftex.def Info: img/mockup/Fail_update.png  used on input line 408.
-(pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--413
-
- []
-
-[11 <e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/img/mockup/Update.png> <e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/img/mockup/Fail_update.png>]
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 261--292
+Underfull \hbox (badness 10000) in paragraph at lines 259--290
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 293--298
+Underfull \hbox (badness 10000) in paragraph at lines 291--296
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 301--327
+Underfull \hbox (badness 10000) in paragraph at lines 299--323
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--327
+Underfull \hbox (badness 10000) in paragraph at lines 299--323
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--327
+Underfull \hbox (badness 10000) in paragraph at lines 299--323
 
  []
 
 [7]
-Overfull \hbox (34.06633pt too wide) in paragraph at lines 375--376
+Overfull \hbox (28.93266pt too wide) in paragraph at lines 371--372
  [] 
  []
 
 <img/mockup/Inicio.png, id=201, 1284.8pt x 803.0pt>
 File: img/mockup/Inicio.png Graphic file (type png)
 <use img/mockup/Inicio.png>
-Package pdftex.def Info: img/mockup/Inicio.png  used on input line 382.
+Package pdftex.def Info: img/mockup/Inicio.png  used on input line 378.
 (pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -902,7 +789,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <img/mockup/Login.png, id=203, 1284.8pt x 803.0pt>
 File: img/mockup/Login.png Graphic file (type png)
 <use img/mockup/Login.png>
-Package pdftex.def Info: img/mockup/Login.png  used on input line 393.
+Package pdftex.def Info: img/mockup/Login.png  used on input line 389.
 (pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -911,7 +798,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <img/mockup/Fail_login.png, id=214, 1284.8pt x 803.0pt>
 File: img/mockup/Fail_login.png Graphic file (type png)
 <use img/mockup/Fail_login.png>
-Package pdftex.def Info: img/mockup/Fail_login.png  used on input line 403.
+Package pdftex.def Info: img/mockup/Fail_login.png  used on input line 399.
 (pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
 
 
@@ -921,12 +808,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <img/mockup/Inicio_loged.png, id=223, 1284.8pt x 803.0pt>
 File: img/mockup/Inicio_loged.png Graphic file (type png)
 <use img/mockup/Inicio_loged.png>
-Package pdftex.def Info: img/mockup/Inicio_loged.png  used on input line 413.
+Package pdftex.def Info: img/mockup/Inicio_loged.png  used on input line 409.
 (pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
 <img/mockup/product_view.png, id=224, 1284.8pt x 803.0pt>
 File: img/mockup/product_view.png Graphic file (type png)
 <use img/mockup/product_view.png>
-Package pdftex.def Info: img/mockup/product_view.png  used on input line 420.
+Package pdftex.def Info: img/mockup/product_view.png  used on input line 416.
 (pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
 
 
@@ -936,12 +823,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <img/mockup/cart.png, id=233, 1284.8pt x 803.0pt>
 File: img/mockup/cart.png Graphic file (type png)
 <use img/mockup/cart.png>
-Package pdftex.def Info: img/mockup/cart.png  used on input line 429.
+Package pdftex.def Info: img/mockup/cart.png  used on input line 425.
 (pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
 <img/mockup/Profile.png, id=234, 1284.8pt x 803.0pt>
 File: img/mockup/Profile.png Graphic file (type png)
 <use img/mockup/Profile.png>
-Package pdftex.def Info: img/mockup/Profile.png  used on input line 437.
+Package pdftex.def Info: img/mockup/Profile.png  used on input line 433.
 (pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
 
 
@@ -951,84 +838,53 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <img/mockup/Update.png, id=243, 1284.8pt x 803.0pt>
 File: img/mockup/Update.png Graphic file (type png)
 <use img/mockup/Update.png>
-Package pdftex.def Info: img/mockup/Update.png  used on input line 446.
+Package pdftex.def Info: img/mockup/Update.png  used on input line 442.
 (pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
 <img/mockup/Fail_update.png, id=244, 1284.8pt x 803.0pt>
 File: img/mockup/Fail_update.png Graphic file (type png)
 <use img/mockup/Fail_update.png>
-Package pdftex.def Info: img/mockup/Fail_update.png  used on input line 454.
+Package pdftex.def Info: img/mockup/Fail_update.png  used on input line 450.
 (pdftex.def)             Requested size: 321.19922pt x 200.74951pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--459
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
 
  []
 
 [12 <e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/img/mockup/Profile.png> <e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/img/mockup/Update.png>] [13 <e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/img/mockup/Fail_update.png>]
->>>>>>> feature/basic-frontend
 
 Package caption Warning: Unused \captionsetup[ContinuedFloat] on input line 15.
 See the caption package documentation for explanation.
 
-<<<<<<< HEAD
-[12] [13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 462.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 462.
-=======
 [14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 508.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 508.
->>>>>>> feature/basic-frontend
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 504.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 504.
  (e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/Full_Stack_Proyect.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
-<<<<<<< HEAD
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 462.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 462.
-Package rerunfilecheck Info: File `Full_Stack_Proyect.out' has not changed.
-(rerunfilecheck)             Checksum: ECACBA9BD5AB92EE5A77D3716F5225BD;1267.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 462.
- ) 
-Here is how much of TeX's memory you used:
- 24647 strings out of 480875
- 499124 string characters out of 5911456
- 851433 words of memory out of 5000000
- 39784 multiletter control sequences out of 15000+600000
- 540894 words of font info for 48 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 60i,9n,87p,575b,1260s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/Full_Stack_Proyect.pdf (13 pages, 503270 bytes).
-PDF statistics:
- 280 PDF objects out of 1000 (max. 8388607)
- 219 compressed objects within 3 object streams
- 47 named destinations out of 1000 (max. 500000)
- 335 words of extra memory for PDF output out of 10000 (max. 10000000)
-=======
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 508.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 508.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 504.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 504.
 Package rerunfilecheck Info: File `Full_Stack_Proyect.out' has not changed.
 (rerunfilecheck)             Checksum: A01486C9F8DF32CB7FC76DD05B9E0106;1412.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 508.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 504.
  ) 
 Here is how much of TeX's memory you used:
  24667 strings out of 480875
- 499294 string characters out of 5911456
- 850429 words of memory out of 5000000
+ 499259 string characters out of 5911456
+ 850398 words of memory out of 5000000
  39787 multiletter control sequences out of 15000+600000
  541241 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,9n,87p,664b,1260s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/Full_Stack_Proyect.pdf (14 pages, 515612 bytes).
+Output written on e:/DAM_2/TANDEM/GitHub/E-commerce/Doncumentation/Documentos/Full_Stack_Proyect.pdf (14 pages, 515967 bytes).
 PDF statistics:
  314 PDF objects out of 1000 (max. 8388607)
  251 compressed objects within 3 object streams
  63 named destinations out of 1000 (max. 500000)
  351 words of extra memory for PDF output out of 10000 (max. 10000000)
->>>>>>> feature/basic-frontend
 
