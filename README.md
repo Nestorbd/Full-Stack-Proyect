@@ -358,7 +358,7 @@ for AngularJS. Adem as, is free and open source.
     * Some components may need to be programmed specifically for iOS.
     
     
-    | Comparative | Hybrid applications | Native apps | Web applications |
+| Comparative | Hybrid applications | Native apps | Web applications |
 | --- | --- | --- | --- |
 | Learning curve | Simple to learn, and only one curve for all developments | More complicated, and requires learning for each platform separately | Save hardware and software costs |
 | Export to different platforms | Very simple, it is developed once and exported to all | Requires development for each programming language | Easy to use |
