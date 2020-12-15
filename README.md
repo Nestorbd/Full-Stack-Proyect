@@ -16,7 +16,7 @@ available, but you will not be able to place any order.
 * [User Requirements](#User-Requirements)
 * [Use Case](#Use-Case)
 * [Interfaces](#Interfaces)
-* [Planning](https://github.com/Nestorbd/Full-Stack-Proyect/projects/1)
+* [Planning](#Planing)
 * [Tools](#-Tools)
 * [Spanish Documentation](#-Spanish-Documentation)
 * [Acknowledgments](#-Acknowledgments)
@@ -31,18 +31,18 @@ Here will be shown how the project database is organized.
 
     In the database you will need to have the following fields:
 
-    - Users, who will have a key, a first name, last name, email,sigue  contract na ytambien you will have to know if it is administrator or not.
+    - Users, who will have a key, a name, surname, email, username, password and you will also have to know if you are an administrator or not.
 
     - Address of the user, the address of each user will be stored, and if you will have, a key, the street, number, postal code, town, province and country.
 
-     - Orders, a key, date, total price and status will be stored.
+     - Orders, a key, date and status will be stored.
 
     - Products, it will store a key, a name, the description on,price, tax percentage, category, know if it is available and an image of the product.
     
     
 * **Relatioships**
 
-  - A user can only have one address and one address can belong to multiple users.
+  - A user can only have one address and one address belongs to one user.
 
   - A user can place multiple orders, but an order belongs only to a user.
 
@@ -62,11 +62,11 @@ Bold words are primary keys and those with an asterisk are foreign keys.
   - id_product is PRODUCTS foreign key.
   - id_order is ORDERS foreign key.
 
-* ORDERS (**id**, date, total, status, timestamp, id_user*).
+* ORDERS (**id**, date, status, timestamp, id_user*).
 
   - id_user is USERS foreign key.
 
-* USERS (**id**, name, last_name, email, password, isAdmin, timestamp, id_address*).
+* USERS (**id**, name, last_name, userName, email, password, isAdmin, timestamp, id_address*).
 
    - id_address is ADDRESS foreign key.
 
@@ -203,7 +203,9 @@ As seen in the mockup and the prototype will use a basic color palette
 (yellow, white, blue, black) based on the Canary Flag as it was used
 to sell Canarian products.
 
-## [Planning](https://github.com/Nestorbd/Full-Stack-Proyect/projects/1)
+## Plannig
+
+You can see my [planning](https://github.com/Nestorbd/Full-Stack-Proyect/projects/1) that I have done in the github repository itself
 
 ## 🔧 Tools
 

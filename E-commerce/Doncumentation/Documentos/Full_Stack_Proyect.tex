@@ -52,11 +52,28 @@
 
 \section{Introducción}
 \quad Este proyecto se desarrollara para la empresa Tandem Enterprise.\\
-El proyecto propuesto por la empresa consiste en implementar una idea de comercio orientada a los productos canarios. En la aplicación se podrán ver, crear, actualizar y eliminar productos de procedencia canaria.\\También habrá usuarios que se tendrán que registrar para poder realizar un pedido. Si un usuario no se ha registrado o no ha iniciado sesión solo podra ver los productos que hay disponibles, pero no podra realizar ningún pedido.
+El proyecto propuesto por la empresa consiste en implementar una idea de comercio orientada a los productos canarios. En la aplicación se podrán ver, crear, actualizar y eliminar productos de procedencia canaria.\\También habrá usuarios, que se tendrán que registrar para poder realizar un pedido. Si un usuario no se ha registrado o no ha iniciado sesión solo podra ver los productos que hay disponibles, pero no podra realizar ningún pedido.\\ Al usuario se le pedira los datos necesarios para poder realizar la compra(nombre, email, contraseña y direccion).\\
+Por ahora, la empresa nos ha pedido que lleguemos hasta la pantalla de compra, asi que no se pediran datos relacionados con la cuenta bancaria ni con targetas de credito o debito.
 \section{Modelo de Datos}
 \quad Aqui se mostrara como esta organizada la base de datos del proyecto.
+\subsection{Descripción}
+\begin{itemize}
+    \item \textbf{Entidades} \\\\
+En la base de datos tendra que tener los siguientes campos:
+\begin{itemize}
+    \item Usuarios, que tendra una clave, un nombre, apellido, email, nombre de usuario, contraseña y tambien se tendra que saber si es administrador o no.
+    \item Direccion del usuario, se almacenara la direccion de cada usuario, y se devera tener, una clave, la calle, numero, codigo postal, localidad, provincia y pais.
+    \item Pedidos, se almacenara una clave, la fecha y estado. 
+    \item Productos, se almacenara una clave, un nombre, la descripción, precio, porcentaje de impuestos, categoria, saber si esta disponible y una imagen del producto.
+\end{itemize}
+\item \textbf{Relaciones} 
+\begin{itemize}
+    \item Un usuario solo puede tener una dirección y una dirección pertenece a un solo usuario. 
+    \item Un usuario puede hacer varios pedidos, pero un pedido pertenece solo a un usuario.
+    \item Un pedido puede tener varios productos y un producto puede estar en varios pedidos.
+\end{itemize}
+\end{itemize}
 \subsection{Diagrama E/R}
-\vspace{10mm}
 \tikzset{basic/.style={
         draw,
         rectangle split,
@@ -91,7 +108,6 @@ availability};
 \nodepart{second}
 \underline{id}\\
 date\\
-total\\
 status};
 
 \node[basic,below=5cm of orders] 
@@ -101,6 +117,7 @@ status};
 \underline{id}\\
 name\\
 last\_name\\
+userName\\
 email\\
 password\\
 isAdmin};
@@ -131,11 +148,23 @@ child[grow=right,level distance=3cm] {node[attribute] {timestamp}};
 \node[left = 2mm of hace]{1:N};
 
 \draw (users) -- (address) node[midway,Diamond](tiene){have};
-\path [align=center, below](tiene) edge node {(\(1\),\(n\))} (users)
+\path [align=center, below](tiene) edge node {(\(1\),\(1\))} (users)
     edge node {(\(1\),\(1\))}	(address);
-\node[below = 2mm of tiene]{1:N};
+\node[below = 2mm of tiene]{1:1};
 
 \end{tikzpicture}
+
+\subsection{Paso de E/R a Modelo relacional}
+\quad Las palabras subrayadas son claves primarias y las que tienen asterisco son claves foraneas.\\
+\textsc{Products} (\underline{\textbf{id}}, name, description, price,tax\_rate, image, category, availability).\\\\
+\textsc{Order\_product} (\underline{\textbf{id\_product*}}, \underline{\textbf{id\_order*}}, timestamp).\\
+\textbf{id\_product} es clave foranea de \textsc{products}.\\
+\textbf{id\_order} es clave foranea de \textsc{orders}.\\\\
+\textsc{Orders} (\underline{\textbf{id}}, date, status, timestamp, \textbf{id\_user*}).\\
+\textbf{id\_user*} es clave foranea de \textsc{users}.\\\\
+\textsc{Users} (\underline{\textbf{id}}, name, last\_name,userName, email, password, isAdmin, timestamp, \textbf{id\_address*}).\\
+\textbf{id\_address} es clave foranea de \textsc{address}.\\\\
+\textsc{Address} (\underline{\textbf{id}},street,number,zip\_code, location, province, country).
 
 \subsection{Modelo Relacional}
 \tikzset{basic2/.style={
@@ -176,7 +205,6 @@ availability BOOLEAN};
 \nodepart{second}
 \textcolor{primaryKey}{(PK)} id INT\\
 date DATE\\
-total FLOAT\\
 status STRING\\
 timestamp TIMESTAMP\\
 \textcolor{foreignKey}{(FK)} id\_user INT
@@ -189,6 +217,7 @@ timestamp TIMESTAMP\\
 \textcolor{primaryKey}{(PK)} id INT\\
 name STRING\\
 last\_name STRING\\
+userName STRING\\
 email STRING\\
 password STRING\\
 isAdmin BOOLEAN\\
@@ -223,7 +252,7 @@ node[midway](hay){};
    
 \draw (users) -- (address)
 node[midway](tiene){};
-\path [align=center, right](tiene) edge node {(\(1\),\(n\))} (users)
+\path [align=center, right](tiene) edge node {(\(1\),\(1\))} (users)
    edge node {(\(1\),\(1\))} (address);
 
 \end{tikzpicture}
@@ -240,9 +269,23 @@ node[midway](tiene){};
 \phantom{abc} price \textsc{\textcolor{sentence}{float not null}},\\
  \phantom{abc} tax\_rate \textsc{\textcolor{sentence}{float default \textcolor{numberSQL}{7} not null}},\\
 \phantom{abc} image \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(500)}}},\\
+\phantom{abc} quantity \textsc{\textcolor{sentence}{int}},\\
 \phantom{abc} category \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(50)}}},\\
  \phantom{abc} availability \textsc{\textcolor{sentence}{boolean not null}}\\);\\\\
- \textsc{\textcolor{sentence}{drop table if exists}} address;\\
+ 
+\textsc{\textcolor{sentence}{drop table if exists}} users;\\
+\textsc{\textcolor{sentence}{create table}} users (\\
+\phantom{abc} id \textsc{\textcolor{sentence}{int primary key auto\_increment}},\\
+\phantom{abc} name \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(100)} not null}},\\
+\phantom{abc} last\_name \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(100)} not null}},\\
+\phantom{abc} userName \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(100)} not null}},\\
+\phantom{abc} email \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(100)}}},\\
+\phantom{abc} password \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(500)}}},\\
+\phantom{abc} isAdmin \textsc{\textcolor{sentence}{boolean default false}},\\
+\phantom{abc} timestamp \textsc{\textcolor{sentence}{timestamp}}\\
+);\\\\
+
+\textsc{\textcolor{sentence}{drop table if exists}} address;\\
  \textsc{\textcolor{sentence}{create table}} address (\\
   \phantom{abc} id \textsc{\textcolor{sentence}{int primary key auto\_increment}},\\
    \phantom{abc} street \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(200)}  not null}},\\
@@ -250,22 +293,12 @@ node[midway](tiene){};
    \phantom{abc} zip\_code \textsc{\textcolor{sentence}{int not null}},\\
    \phantom{abc} location \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(50)} not null}},\\
    \phantom{abc} province \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(50)} not null}},\\
-   \phantom{abc} country \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(50)} not null}}\\);\\\\
-\textsc{\textcolor{sentence}{drop table if exists}} users;\\
-\textsc{\textcolor{sentence}{create table}} users (\\
-\phantom{abc} id \textsc{\textcolor{sentence}{int primary key auto\_increment}},\\
-\phantom{abc} name \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(100)} not null}},\\
-\phantom{abc} last\_name \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(100)} not null}},\\
-\phantom{abc} email \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(100)}}},\\
-\phantom{abc} password \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(500)}}},\\
-\phantom{abc} id\_address \textsc{\textcolor{sentence}{int not null}},\\
-\phantom{abc} isAdmin \textsc{\textcolor{sentence}{boolean default false}},\\
-
-\phantom{abc} timestamp \textsc{\textcolor{sentence}{timestamp}},\\\\
-\phantom{abc} \textsc{\textcolor{sentence}{foreign key}} (id\_address) \textsc{\textcolor{sentence}{references}} address(id)\\
+   \phantom{abc} country \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(50)} not null}}\\
+   \phantom{abc} id\_user \textsc{\textcolor{sentence}{int not null}},\\\\
+\phantom{abc} \textsc{\textcolor{sentence}{foreign key}} (id\_user) \textsc{\textcolor{sentence}{references}} users(id)\\
 \phantom{abc} \textsc{\textcolor{sentence}{on update cascade}}\\
-\phantom{abc} \textsc{\textcolor{sentence}{on delete  cascade}}\\
-);
+\phantom{abc} \textsc{\textcolor{sentence}{on delete  cascade}}
+   );
 
 \newpage
 
@@ -273,8 +306,6 @@ node[midway](tiene){};
 \textsc{\textcolor{sentence}{create table}} orders (\\
 \phantom{abc} id \textsc{\textcolor{sentence}{int primary key auto\_increment}},\\
 \phantom{abc} date \textsc{\textcolor{sentence}{date not null}},\\
-\phantom{abc} total 
-\textsc{\textcolor{sentence}{float not null}},\\
 \phantom{abc} status \textsc{\textcolor{sentence}{varchar\textcolor{numberSQL}{(50)}}},\\
 \phantom{abc} id\_user \textsc{\textcolor{sentence}{int not null}},\\
 \phantom{abc} timestamp \textsc{\textcolor{sentence}{timestamp}},\\\\
@@ -297,31 +328,48 @@ node[midway](tiene){};
 );
 
 \section{Requisitos de usuario}
-\begin{itemize}
+\begin{enumerate}
+	\item Plataforma
+		\begin{enumerate}
+		\item Aplicación web
+		\item Responsive, se podra ver en cualquier dispositivo que tenga internet y un navegador.
+		\end{enumerate}
+	\item Solo se llegara hasta la pantalla de compra por ahora. 
     \item El usuario no registrado solo podra ver los productos.
-    \item Solo se podra acceder al carrito si el usuario esta registrado.
+		\begin{enumerate}
+		\item Si el usuario no registrado intenta hacer una accion que requiere registro, se le llevara a la pantalla donde podra iniciar sesion o registrarse.
+		\item Para el registro solo se pedira nombre, email y contraseña, estos dos ultimas se tendran que confirmar para evitar confuciones.
+		\item Si el usuario no completa correctamente algún campo se le notificara.
+        \end{enumerate}
+\newpage
     \item Para poder hacer una compra se necesita la direccion de envio.
+		\begin{enumerate}
+		\item Si el usuario intenta hacer una compra sin tener una direccion de envio se le pedira.
+		\item Igualmente, si tiene direccion de envio, se devera confirmar que el usuario quiere usar esa direccion para la compra.
+		\end{enumerate}
     \item El usuario podra actualizar sus datos en el perfil.
-    \item El usuario podra registrarse o iniciar sesion si tiene cuenta de google.
-\end{itemize}
+		\begin{enumerate}
+		\item Podra actualizar cualquier dato, pero en el caso del email y la contraseña si los quiere cambiar tendra que confirmarlos como se hace en el registro.
+		\end{enumerate}
+\end{enumerate}
 
 \section{Casos de uso}
 \begin{center}
 \begin{tikzpicture}
 \begin{umlsystem}[x=4, fill=red!10]{The system}
-\umlusecase{Ver productos}
-\umlusecase[y=-3]{Hacer pedido}
-\umlusecase[x=6, y=-2, fill=green!20]{Administrar productos}
-\umlusecase[x=6, y=1, fill=green!20]{Administrar pedidos}
+\umlusecase{View Products}
+\umlusecase[y=-3]{Make a order}
+\umlusecase[x=6, y=-2, fill=green!20]{Manage products}
+\umlusecase[x=6, y=1, fill=green!20]{Manage orders}
 \end{umlsystem}
 
-\umlactor{usuario no registrado}
-\umlactor[y=-3]{usuario}
+\umlactor{user not registered}
+\umlactor[y=-3]{user}
 \umlactor[x=14, y=-1.5]{admin}
 
-\umlassoc{usuario no registrado}{usecase-1}
-\umlassoc{usuario}{usecase-1}
-\umlassoc{usuario}{usecase-2}
+\umlassoc{user not registered}{usecase-1}
+\umlassoc{user}{usecase-1}
+\umlassoc{user}{usecase-2}
 \umlassoc{admin}{usecase-3}
 \umlassoc{admin}{usecase-4}
 

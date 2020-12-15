@@ -11,6 +11,23 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'sign-in',
+    loadChildren: () => import('./sign-in/sign-in.module').then( m => m.SignInPageModule)
+  },
+  {
+    path: 'create-update-product',
+    loadChildren: () => import('./create-update-product/create-update-product.module').then( m => m.CreateUpdateProductPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },  {
+    path: 'product-view',
+    loadChildren: () => import('./product-view/product-view.module').then( m => m.ProductViewPageModule)
+  },
+
+
 ];
 
 @NgModule({

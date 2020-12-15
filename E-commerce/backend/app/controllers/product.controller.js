@@ -1,5 +1,5 @@
 const db = require("../models");
-const Product = db.product;
+const Product = db.products;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Product
@@ -20,6 +20,7 @@ exports.create = (req, res) => {
         price: req.body.price,
         tax_rate: req.body.tax_rate,
         image: req.body.image,
+        category: req.body.category,
         quantity: req.body.quantity,
         availability: req.body.availability
     };
@@ -39,7 +40,18 @@ exports.create = (req, res) => {
 
 // Retrieve all Product from the database.
 exports.findAll = (req, res) => {
-    Product.findAll()
+    Product.findAll(
+    //     { 
+    //     include: [{
+    //         model: orders,
+    //         as: 'Orders',
+    //         through: {
+    //             attributes: [],
+    //           }
+    //     }
+    // ]
+    // }
+    )
         .then(data => {
             res.send(data);
         })
@@ -54,8 +66,18 @@ exports.findAll = (req, res) => {
 // Find a single Product with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-
-    Product.findByPk(id)
+console.log("esto es findOne")
+    Product.findByPk(id,
+    //      { 
+    //     include: [{
+    //         model: orders,
+    //         as: 'Orders',
+    //         through: {
+    //             attributes: [],
+    //           }
+    //     }]
+    // }
+    )
         .then(data => {
             res.send(data);
         })
@@ -68,6 +90,7 @@ exports.findOne = (req, res) => {
 
 // Update a Product by the id in the request
 exports.update = (req, res) => {
+    console.log("pasa por update")
     const id = req.params.id;
 
     Product.update(req.body, {
@@ -115,3 +138,22 @@ exports.delete = (req, res) => {
             });
         });
 };
+
+exports.compareProductName = (req,res) =>{
+    const name = req.params.name;
+
+    Product.findOne({ where: { name: name } })
+.then(data => {
+  if(data){
+  res.send(true)
+  }
+  else{
+    res.send(false)
+  }
+})
+.catch(err => {
+  res.status(500).send({
+    message: "Error retrieving Product with name=" + name
+  });
+});
+}
