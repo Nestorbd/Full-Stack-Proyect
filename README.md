@@ -185,14 +185,14 @@ they are correct so that you can correct them.
 
 ### Usability
 
-Here we will see the basic usability features that the project has
-for now, jandonos in the mockup and the prototype:
+Here we will see the basic usability features that the project has:
 
 * Easy to learn and intuitive
 
-These two points are complementary, the Website is intuitive since the
-structure and operation are very similar to those used in others
+These two points are complementary, the Website is intuitive since the structure and operation are very similar to those used in others
 websites dedicated to commerce such as amazon and ebay.
+
+![home]()
 
 * Error prediction
 As seen in figure 3 or figure 9, the user is noticed if some
