@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const Product = sequelize.define("product", {
+    const Product = sequelize.define("products", {
         name: {
             type: Sequelize.STRING,
             allowNull: false
@@ -9,11 +9,11 @@ module.exports = (sequelize, Sequelize) => {
           allowNull: true
       },
       price: {
-          type: Sequelize.NUMBER,
+          type: Sequelize.INTEGER,
           allowNull: false
       },
       tax_rate: {
-          type: Sequelize.NUMBER,
+          type: Sequelize.FLOAT,
           allowNull: true
       },
       image: {
@@ -25,14 +25,22 @@ module.exports = (sequelize, Sequelize) => {
           allowNull: true
       },
       quantity: {
-          type: Sequelize.NUMBER,
+          type: Sequelize.INTEGER,
           allowNull: true
       },
       availability: {
-          type: Sequelize.BOOLEAN,
+          type: Sequelize.INTEGER,
           allowNull: false
       }
     }, { timestamps: false});
+
+    Product.associate = function(models) {
+        Product.belongsToMany(models.products, {
+            through: "orderProduct",
+            foreignKey: "id_product",
+            as: "products"
+          });
+      }
 
     return Product;
 };

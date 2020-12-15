@@ -3,7 +3,7 @@ const utils = require('../../utils');
 const bcrypt = require('bcryptjs');
 
 const db = require("../models");
-const User = db.user;
+const User = db.users;
 
 exports.signin = (req, res) => {
   const user = req.body.username;
@@ -16,7 +16,7 @@ exports.signin = (req, res) => {
       message: "Username or Password required."
     });
   }
-
+console.log(user);
   // return 401 status if the credential is not match.
   User.findOne({ where: { username: user } })
     .then(data => {
@@ -33,15 +33,15 @@ exports.signin = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving tutorials."
+          err.message || "Some error occurred while retrieving user."
       });
     });
 };
 
 exports.isAuthenticated = (req, res, next) => {
   // check header or url parameters or post parameters for token
-   var token = req.body.token || req.query.token;
- // var token = req.token;
+  // var token = req.body.token || req.query.token;
+  var token = req.token;
   if (!token) {
     return res.status(400).json({
       error: true,
@@ -55,7 +55,7 @@ exports.isAuthenticated = (req, res, next) => {
       error: true,
       message: "Invalid token."
     });
-
+  
     User.findByPk(user.id)
       .then(data => {
         // return 401 status if the userId does not match.
@@ -70,7 +70,7 @@ exports.isAuthenticated = (req, res, next) => {
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving User with id=" + id
+          message: "Error retrieving user with id=" + id
         });
       });
   });

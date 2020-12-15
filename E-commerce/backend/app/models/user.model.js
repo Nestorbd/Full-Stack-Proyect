@@ -1,14 +1,22 @@
 module.exports = (sequelize, Sequelize) => {
-    const User = sequelize.define("user", {
+    const User = sequelize.define("users", {
         name: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        password: {
+        last_name: {
+            type: Sequelize.STRING,
+            allowNull: true
+        },
+        username: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        username: {
+        email: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        password: {
             type: Sequelize.STRING,
             allowNull: false
         },
@@ -18,6 +26,14 @@ module.exports = (sequelize, Sequelize) => {
         }
     },
     { timestamps: false});
+
+    User.associate = function(models) {
+        User.hasMany(models.orders, {
+          foreignKey: "id_user",
+          as: "users"
+        });
+    }
+    
 
     return User;
 };
