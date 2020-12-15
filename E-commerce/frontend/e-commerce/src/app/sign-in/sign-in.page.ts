@@ -61,10 +61,10 @@ console.log(this.checked)
             this.presentAlert("invalid credentials", "Sign In");
             return;
           }
-          this.router.navigateByUrl("home");
-          //   this.router.navigateByUrl("home").then( () =>{
-          //     location.reload();
-          //   });
+          // this.router.navigateByUrl("home");
+            this.router.navigateByUrl("home").then( () =>{
+              location.reload();
+            });
         }, err => {
           this.presentAlert("password not valid!", "Sign In");
         });

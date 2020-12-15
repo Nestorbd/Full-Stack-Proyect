@@ -376,7 +376,7 @@ node[midway](tiene){};
 
 \end{tikzpicture}
 \end{center}
-\section{Funcionamiento}
+\newpage
 \section{Interfaces}
 \subsection{Mockup}
 \begin{figure}[h]
@@ -464,20 +464,135 @@ Para registrarse solo se pedirá nombre de usuario, email, contraseña y que ace
 \end{center}
 
 \subsection{Usabilidad}
-\quad Aqui vamos a ver las caracteristicas basicas de usabilidad que tiene el proyecto por ahora, fijandonos en el mockup y el prototipo:
+\quad Aqui vamos a ver las caracteristicas basicas de usabilidad que tiene el proyecto:
 \begin{itemize}
     \item Facil de aprender e intuitiva \\
    \phantom{ab}Estos dos puntos son complementarios, la pagina web es intuitiva ya que la estructura y funcionamiento son muy parecidos a los que se utilizan en otros sitios web dedicados al comercio como amazon y ebay.
-    \item Previsión de errores\\
-   \phantom{ab}Como se ve en la figura \ref{Fig:Fail_login} o en la figura \ref{Fig:Fail_update} se notificara al usuario si algún dato de los que ha introducido es erroneo.
-    \item Elegante en su diseño\\
-   \phantom{ab}Como se ve en el mockup y el prototipo se usara una paleta de colores basica (amarillo, blanco, azul, negro) basada en la bandera de canarias ya que se usara para vender productos canarios.
+   \begin{figure}[h]
+    \ContinuedFloat*
+    \centering
+    \begin{subfigure}[h]{0.45\textwidth}
+    \includegraphics[scale=0.25]{usability/home.png}
+    \caption{Vista Principal}
+    \label{Fig:Home}
+    \end{subfigure}
+    
+\end{figure} 
+   
+   \item Previsión de errores\\
+   \phantom{ab}Como se ve en las siguientes imagenes se notificara al usuario si algún dato de los que ha introducido es erroneo o ha ocurrido algun error.
+\begin{figure}[h]
+    \ContinuedFloat
+    \centering
+    \begin{subfigure}[h]{0.45\textwidth}
+    \includegraphics[scale=0.25]{usability/errors.png}
+    \caption{Fallo al iniciar sesion}
+    \label{Fig:Fail_signIn}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.45\textwidth}
+        \includegraphics[scale=0.25]{usability/errorWindow.png}
+        \caption{Fallo al iniciar sesion}
+        \label{Fig:Fail_signIn2}
+        \end{subfigure}
+\end{figure}
+    \item Elegante y simple en su diseño\\
+   \phantom{ab}Se usara una paleta de colores basica (amarillo, blanco, azul, negro) basada en la bandera de canarias ya que se usara para vender productos canarios.
+   \item Es eficiente\\
+   \phantom{ab}Se pide lo que se necesita para el funcionamiento, ni mas ni menos.
+   \item Usables
+   \begin{itemize}
+    \item El usuario es capaz de iniciar acciones y controlarlas, como iniciar y cerrar sesion.
+    \item El usuario puede cambiar los colores de la aplicacion, de claro a oscuro, segun su gusto.
+    \begin{figure}[h]
+        \ContinuedFloat
+        \centering
+        \begin{subfigure}[h]{0.45\textwidth}
+        \includegraphics[scale=0.25]{usability/darkTheme.png}
+        \caption{Modo Oscuro}
+        \label{Fig:DarkTheme}
+        \end{subfigure}
+        
+    \end{figure}
+    \item El usuario puede interactuar con la aplicacion y acceder a todo el contenido que se le permite, dependiendo el tipo de usuario que sea.
+    \item Si el usuario comete algun error a la hora de insertar datos como por ejemplo en el registro, se le avisara como se hace en la siguiente imagen.
+    \begin{figure}[h]
+        \ContinuedFloat
+        \centering
+        \begin{subfigure}[h]{0.45\textwidth}
+        \includegraphics[scale=0.25]{usability/FormsErrors.png}
+        \caption{Validacion del formulario}
+        \label{Fig:FormsErrors}
+        \end{subfigure}
+        \begin{subfigure}[h]{0.45\textwidth}
+            \includegraphics[scale=0.25]{usability/noData.png}
+            \caption{Validacion del formulario}
+            \label{Fig:FormsErrors2}
+            \end{subfigure}
+    \end{figure}
+   \end{itemize}
+   \item Familiaridad del usuario \\
+   \phantom{ab}Se puede acceder a la aplicacion desde cualquier dispositivo.
+   \item Minima sorpresa \\
+   \phantom{ab}El usuario sabra en cada momento que esta haciendo, por lo cual no se llevara ninguna sorpresa.
+   \item Seguridad \\
+   \phantom{ab}La contraseña del usuario se almacena en la base de datos encriptada con bcrypt y el token codificado en base64.
+   \begin{figure}[h]
+    \ContinuedFloat
+    \centering
+    \begin{subfigure}[h]{0.45\textwidth}
+    \includegraphics[scale=0.5]{usability/Segurity.png}
+    \caption{Encriptacion y codificacion}
+    \label{Fig:Security}
+    \end{subfigure}
+    
+\end{figure}
 \end{itemize}
 \section{Manuales}
 \subsection{Instalación para desarrolladores}
-\subsection{Instalación para tecnicos}
-\subsection{Usuarios}
-\subsection{Ayudas}
+\quad Para poder usar la aplicacion primero necesitamos tener instalado las aplicaciones \href{https://git-scm.com/downloads}{\textbf{\textcolor{blue}{Git}}} y \href{https://nodejs.org/es/download/}{\textbf{\textcolor{blue}{node.JS}}}.\\
+Despues de tener instalado estas dos aplicaciones tenemos que acceder a una terminal como el cmd en la carpeta en la que se quiere instalar la aplicación y escribir los siguientes comando:\\
+\lstset{breaklines=true, basicstyle=\footnotesize}
+\begin{lstlisting}[frame=single]
+git clone https://github.com/Nestorbd/Full-Stack-Proyect
+cd E-commerce/backend
+npm install
+\end{lstlisting}
+Al terminar esto ya tendremos instalado el servidor de la aplicacion.\\
+Si quieres que la aplicacion tenga unos datos base necesitaras instalar algun programa como el MySQL Workbench o phpMyAdmin para poder leer el \href{https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/DB_e_comerce.sql}{\textbf{\textcolor{blue}{SQL}}}.\\
+Tambien tienes que crear un archivo .env en el backend con los siguientes datos:
+\lstset{breaklines=true, basicstyle=\footnotesize}
+\begin{lstlisting}[frame=single]
+    JWT_SECRET=V3RY#1MP0RT@NT$3CR3T#
+
+    MYSQL_DATABASE=db_e_commerce
+    MYSQL_USER=root
+    MYSQL_PASSWORD=root
+    MYSQL_ROOT_PASSWORD=root
+    
+    DB_HOST=localhost
+    
+    NODE_ENV=development
+\end{lstlisting}
+Para instalar el cliente tenemos que volver al directorio raiz E-commerce y hacer lo siguiente:
+\lstset{breaklines=true, basicstyle=\footnotesize}
+\begin{lstlisting}[frame=single]
+cd E-commerce/frontend/e-commerce
+npm install
+\end{lstlisting}
+Y ya estaria instalado el cliente, ahora para arrancar la aplicacion primero tenemos que arrancar el servidor y luego el cliente, a continuacion explico como se hace.\\
+Primero hay que volver al directorio raiz E-commerce y hacer lo siguiente:
+\lstset{breaklines=true, basicstyle=\footnotesize}
+\begin{lstlisting}[frame=single]
+    cd E-commerce/backend
+    node server.js
+    \end{lstlisting}
+Ahora abrimos otra consola en el directorio raiz y hacemos esto:
+\lstset{breaklines=true, basicstyle=\footnotesize}
+\begin{lstlisting}[frame=single]
+    cd E-commerce/frontend/e-commerce
+    ionic serve
+    \end{lstlisting}
+Y listo, ya tenemos nuestra aplicacion instalada y funcionando.
 \section{Pila tecnológica}
 \begin{itemize}
 \item \textbf{Backend:}
@@ -496,15 +611,47 @@ Para registrarse solo se pedirá nombre de usuario, email, contraseña y que ace
     \end{itemize}
 \end{itemize}
 \section{Comparación de tecnologias}
+\subsection{IONIC}
+\quad Es un framework que se está haciendo muy popular últimamente. 
+Es una herramienta que los programadores pueden utilizar totalmente gratis, 
+para desarrollar apps basadas en HTML5, CSS y JavaScript. Está construido con
+ Sass y optimizado para AngularJS. Además, es libre y de código abierto, open source.
+
+ \begin{itemize}
+   \item \textbf{\underline{Ventajas}}
+    \begin{itemize}
+\item \textbf{AngularJS}
+Trabaja perfectamente con AngularJS. Dando lugar a una arquitectura robusta para el desarrollo de apps. Podrás crear apps móviles ricas y robustas, para colgar en tu tienda de apps favorita.
+    \item \textbf{Es fácil de entender}
+    No tendrás que complicarte demasiado la vida utilizando el framework, es bastante sencillo de entender. Es desarrollar un código una vez y reutilizarlo las veces que quieras.
+    \item \textbf{Pulcro}
+    Es moderno y está diseñado para trabajar con lo más actual, con un diseño limpio y pulcro. Los componentes son atractivos, la tipografía, etc.
+    \item \textbf{Crea, construye, prueba y compila}
+    Podrás crear, construir, y compilar apps en cualquier plataforma, todo con un solo comando. Por eso se considera un potente CLI.
+    \item \textbf{Funciona rápido}
+    Si te desesperas con poco, te gustará Ionic. Está hecho para ser rápido.
+    \item \textbf{Ionic Creator}
+    Una de las ventajas de este framwork, es una de sus herramientas, Ionic Creator. Básicamente permite crear las Interfaces sin tener que meter el código a machete. Podrás crear la parte gráfica fácil sin tocar el código para nada.
+    \end{itemize}
+    \item \textbf{\underline{Desventajas}}
+    \begin{itemize}
+        \item Es un lenguaje híbrido, nunca va a funcionar tan rápido como una app nativa.
+        \item No tiene todas las funcionalidades que puede tener una app nativa.
+        \item No es recomendable para proyectos muy grandes.
+        \item Puede que algunos componentes te toque programarlos específicamente para iOS.
+    \end{itemize}
+ \end{itemize}
+
 \section{Repositorios}
 \begin{center}
     \href{https://github.com/Nestorbd/Full-Stack-Proyect}{\textbf{\textcolor{blue}{\underline{GitHub}}}}
 \end{center}
 \section{Planificación}
 \quad Planificación hecha con kanban en github: \href{https://github.com/Nestorbd/Full-Stack-Proyect/projects/1}{\textbf{\textcolor{blue}{\underline{link}}}}
+\section{Enlaces}
 
-\section{Conclusiones, opiniones y reflexiones}
-\section{Enlaces y referencias}
-
+\begin{itemize}
+  \item  \href{https://documenter.getpostman.com/view/12915886/TVspjUfE}{\textbf{\textcolor{blue}{\underline{POSTMAN}}}}
+\end{itemize}
 
 \end{document}
