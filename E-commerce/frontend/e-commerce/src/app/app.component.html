@@ -1,5 +1,35 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
+  
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay" id="ion-menu-custom">
+      <ion-content >
+        <ion-list id="inbox-list">
+          <ion-menu-toggle auto-hide="false" >
+          <br/>
+          <br/>
+          <br/>
+          <ion-title>E-commerce</ion-title>
+            <ion-item>
+              <ion-toggle (ionChange)='darkTheme($event)' slot='end'></ion-toggle>
+              <ion-label>Dark Theme</ion-label>
+            
+            </ion-item>
+            <ion-item>
+              <ion-router-link href="https://twitter.com/" target="_blank" slot="end"><ion-icon name="logo-twitter" size="large" ></ion-icon></ion-router-link>
+              <ion-label>Twitter</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-router-link href="https://www.facebook.com/" target="_blank" slot="end"><ion-icon name="logo-facebook" size="large"></ion-icon></ion-router-link>
+              <ion-label>Facebook</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0768A9">
     <a class="navbar-brand" href="#">E-Commerce</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +42,7 @@
           <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" id="sign-in">
-          <a class="nav-link" href="/sign-in">Sign In</a>
+          <a class="nav-link" (click)="presentModal()">Sign In</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,7 +61,7 @@
       </form>
     </div>
   </nav>
-  <ion-footer id="footer-custom">
+  <!-- <ion-footer id="footer-custom" class="global-footer has-global-footer" >
     <ion-toolbar>
       <ion-title>E-commerce</ion-title>
       <ion-item>
@@ -42,5 +72,5 @@
         
       </ion-item>
     </ion-toolbar>
-  </ion-footer>
+  </ion-footer> -->
 </ion-app>

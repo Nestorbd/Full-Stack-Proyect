@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { Product } from '../models/product';
 import { Storage } from '@ionic/storage';
 import { from } from 'rxjs';
+import { map, concatAll } from 'rxjs/operators';
 
 // const httpOptions = {
 //   headers: new HttpHeaders({
@@ -22,18 +23,18 @@ export class ProductService {
   currentProductId: number;
   isUpdateProduct: boolean = false;
   constructor(private http: HttpClient, private storage: Storage) {
-    
-    
-   }
 
-  setIsUpdateProduct(isUpdate:boolean){
+
+  }
+
+  setIsUpdateProduct(isUpdate: boolean) {
     this.isUpdateProduct = isUpdate;
   }
 
-  setCurrentProductId(id: number){
+  setCurrentProductId(id: number) {
     this.currentProductId = id;
   }
-  getCurrentProductId(){
+  getCurrentProductId() {
     return this.currentProductId;
   }
 
@@ -53,58 +54,78 @@ export class ProductService {
 
   }
 
-  getProductId(id: number): Observable<Product>{
-    return this.http.get<Product>(apiUrl+"/"+id);
+  getProductId(id: number): Observable<Product> {
+    return this.http.get<Product>(apiUrl + "/" + id);
   }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(apiUrl);
   }
 
-  compareProductName(name: string){
-    return this.http.get(apiUrl+"/name/compare/"+name);
+  compareProductName(name: string) {
+    return this.http.get(apiUrl + "/name/compare/" + name);
   }
 
-  deleteProduct(id: number){
-      return this.http.delete(apiUrl + "/" + id); 
+  deleteProduct(id: number) {
+    
+   return from(Promise.all([
+      this.getHeader()
+    ])).pipe(map((values)=>{ 
+      return this.http.delete(apiUrl + "/" + id,values[0]);
+    }),concatAll()
+    );
+    
   }
 
-  addProduct(product: Product): Observable<any>{
+  addProduct(product: Product): Observable<any> {
     let bodyencoded = new URLSearchParams();
     bodyencoded.append("name", product.name);
     bodyencoded.append("description", product.description);
     bodyencoded.append("price", product.price.toString());
     bodyencoded.append("tax_rate", product.tax_rate.toString());
-    bodyencoded.append("img",  null);
+    bodyencoded.append("img", null);
     bodyencoded.append("category", product.category);
     bodyencoded.append("quantity", product.quantity.toString());
     bodyencoded.append("available", product.available.toString());
     let body = bodyencoded.toString();
 
-   // return this.http.post(apiUrl, body);
-return from(this.getHeader().then(myOptions=>{
-  console.log(body)
-  return this.http.post(apiUrl, body, myOptions);
-}))
+    // return this.http.post(apiUrl, body);
+    return from(
+      Promise.all([
+        this.getHeader()
+      ])).pipe(map(values => {
+      console.log(product.id)
+      return this.http.post(apiUrl, body, values[0]);
+      
+    }),
+    concatAll()
+      );
+    
   }
 
-   updateProduct(product: Product): Observable<any>{
-     console.log(product)
+  updateProduct(product: Product): Observable<any> {
+    console.log(product)
     let bodyencoded = new URLSearchParams();
     bodyencoded.append("name", product.name);
     bodyencoded.append("description", product.description);
     bodyencoded.append("price", product.price.toString());
     bodyencoded.append("tax_rate", product.tax_rate.toString());
-    bodyencoded.append("img",  null);
+    bodyencoded.append("img", null);
     bodyencoded.append("category", product.category);
     bodyencoded.append("quantity", product.quantity.toString());
     bodyencoded.append("available", product.available.toString());
-    let body = bodyencoded;
+    let body = bodyencoded.toString();
 
     //return this.http.put(apiUrl + "/" + product.id, body);
-   return  from(this.getHeader().then(myOptions=>{
-      console.log(body)
-     return this.http.put(apiUrl + "/update/" + product.id, body, myOptions);
-    }))
+    return from(
+      Promise.all([
+        this.getHeader()
+      ])).pipe(map(values => {
+      console.log(product.id)
+      return this.http.put(apiUrl+"/" + product.id, body, values[0]);
+      
+    }),
+    concatAll()
+      );
   }
 }

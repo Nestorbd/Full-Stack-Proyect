@@ -8,13 +8,13 @@
 <ion-content [fullscreen]="true">
   <ion-card *ngFor="let p of product" >
     <ion-card-header>
+      <img class="image" src="./assets/img/clipper.jpg">
       <ion-card-subtitle>{{p.category}}</ion-card-subtitle>
       <ion-card-title>{{p.name}}</ion-card-title>
     </ion-card-header>
   
     <ion-card-content (click)="viewProduct(p.id)">
      Precio: {{p.price}}€<br />
-     Cantidad: {{p.quantity}} unidades <br/><br />
      Descripción: <br />{{p.description}}
     </ion-card-content>
     <ion-item id="ud-product">

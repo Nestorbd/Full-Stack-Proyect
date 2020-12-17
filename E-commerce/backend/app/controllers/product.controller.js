@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 // Create and Save a new Product
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.name || !req.body.price || !req.body.availability || !req.body.quantity) {
+    if (!req.body.name || !req.body.price || !req.body.available || !req.body.quantity) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
@@ -19,10 +19,10 @@ exports.create = (req, res) => {
         description: req.body.description,
         price: req.body.price,
         tax_rate: req.body.tax_rate,
-        image: req.body.image,
+        img: req.body.img,
         category: req.body.category,
         quantity: req.body.quantity,
-        availability: req.body.availability
+        available: req.body.available
     };
 
     // Save Product in the database
@@ -90,9 +90,11 @@ console.log("esto es findOne")
 
 // Update a Product by the id in the request
 exports.update = (req, res) => {
+    
     console.log("pasa por update")
     const id = req.params.id;
-
+    console.log(req.body)
+    console.log(id);
     Product.update(req.body, {
         where: { id: id }
     })

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sign In</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <form [formGroup]="SignInForm" (ngSubmit)="onFormSubmitSignIn()">
+   
+    <ion-item>
+      <ion-label position="floating">UserName</ion-label>
+      <ion-input formControlName="username" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">password</ion-label>
+      <ion-input formControlName="password" type="password" required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit"  shape="full" expand="block">Sign In</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  <ion-button (click)="signUp()"  expand="block" >Sign Up</ion-button>
+</ion-content>

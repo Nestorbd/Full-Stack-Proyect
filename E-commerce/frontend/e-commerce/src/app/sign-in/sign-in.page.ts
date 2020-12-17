@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { UserService } from '../services/user.service';
@@ -11,22 +11,25 @@ import { User } from '../models/user';
   styleUrls: ['./sign-in.page.scss'],
 })
 export class SignInPage implements OnInit {
-  SignInForm: FormGroup;
+  
   SignUpForm: FormGroup;
   checked: Boolean;
   constructor(public fb: FormBuilder, private userService: UserService, private router: Router, private alertController: AlertController) {
-    this.SignInForm = this.fb.group({
-      username: [''],
-      password: ['']
-    })
+    
     this.SignUpForm = this.fb.group({
-      name: [''],
-      lastName: [''],
-      username: [''],
-      email: [''],
-      confirmEmail: [''],
-      password: [''],
-      confirmPassword: [''],
+      name: ['', Validators.required],
+      lastName: ['', Validators.required],
+      username: ['', Validators.required],
+      email: ['', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ])],
+      confirmEmail: ['', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ])],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
       termsAgree: ['']
     })
   }
@@ -37,44 +40,7 @@ export class SignInPage implements OnInit {
 onChangeChecked(){ 
 console.log(this.checked)
 }
-  onFormSubmitSignIn() {
-    if (!this.SignInForm.valid) {
-      return false;
-    } else {
-      let user = {
-        id: null,
-        name: null,
-        lastName: null,
-        username: this.SignInForm.value.username,
-        email: null,
-        password: this.SignInForm.value.password,
-        isAdmin: null
-      }
-      this.userService.compareUserName(user.username).subscribe(compareUserName => {
-        if (!compareUserName) {
-          this.presentAlert("Username not yet registered", "Sign In");
-          return;
-        } 
-        this.userService.signIn(user)
-        .subscribe((res) => {
-          if (!res.access_token) {
-            this.presentAlert("invalid credentials", "Sign In");
-            return;
-          }
-          this.router.navigateByUrl("home");
-          //   this.router.navigateByUrl("home").then( () =>{
-          //     location.reload();
-          //   });
-        }, err => {
-          this.presentAlert("password not valid!", "Sign In");
-        });
-        
-      }, err => {
-        this.presentAlert("username or password not valid", "Sign In");
-      });
-      
-    }
-  }
+ 
 
   onFormSubmitSignUp() {
     let user: User = {
@@ -112,6 +78,7 @@ console.log(this.checked)
         let validatePassword = false;
         let validateUseTerms = false;
 
+        
         if (compareUserName) {
           document.getElementById("username-match").style.display = "block";
           validateUsername = false;

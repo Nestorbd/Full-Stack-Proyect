@@ -22,7 +22,7 @@ exports.create = (req, res) => {
     password: req.body.password,
     username: req.body.username,
     email: req.body.email,
-    last_name: req.body.last_name,
+    lastName: req.body.lastName,
     isAdmin: req.body.isAdmin ? req.body.isAdmin : false
   };
 
@@ -165,6 +165,83 @@ exports.findOneByUserName = (req, res) => {
     });
 }
 
+exports.compareUserNameWithOtherUsers = (req, res) => {
+  const username = req.params.username;
+  const id = req.params.id;
+
+  User.findOne({ where: { username: username, id:{[Op.ne]:[id] }} },
+  //   {
+  //   include: [{
+  //     model: addresses,
+  //     as: 'Address',
+  //     through: {
+  //       attributes: []
+  //     }
+  //   },
+  //   {
+  //     model: orders,
+  //     as: 'Orders',
+  //     through: {
+  //       attributes: []
+  //     }
+  //   }
+  //   ]
+  // }
+  )
+    .then(data => {
+      if (data) {
+        res.send(true)
+      }
+      else {
+        res.send(false)
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving User with username=" + username
+      });
+    });
+}
+
+
+exports.compareEmailWithOtherUsers = (req, res) => {
+  const email = req.params.email;
+  const id = req.params.id;
+
+  User.findOne({ where: { email: email, id:{[Op.ne]:[id] }} },
+  //   {
+  //   include: [{
+  //     model: addresses,
+  //     as: 'Address',
+  //     through: {
+  //       attributes: []
+  //     }
+  //   },
+  //   {
+  //     model: orders,
+  //     as: 'Orders',
+  //     through: {
+  //       attributes: []
+  //     }
+  //   }
+  //   ]
+  // }
+  )
+    .then(data => {
+      if (data) {
+        res.send(true)
+      }
+      else {
+        res.send(false)
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving User with username=" + username
+      });
+    });
+}
+
 // Compare if email already exists
 exports.compareUsersEmail = (req, res) => {
   const email = req.params.email;
@@ -210,8 +287,19 @@ exports.compareUserName = (req, res) => {
 // Update a User by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
+console.log(req.body)
+  let user = {
+    name: req.body.name,
+    password: req.body.password,
+    username: req.body.username,
+    email: req.body.email,
+    lastName: req.body.lastName,
+    isAdmin: req.body.isAdmin ? req.body.isAdmin : false
+  };
 
-  User.update(req.body, {
+  user.password = bcrypt.hashSync(req.body.password);
+
+  User.update(user, {
     where: { id: id }
   })
     .then(num => {

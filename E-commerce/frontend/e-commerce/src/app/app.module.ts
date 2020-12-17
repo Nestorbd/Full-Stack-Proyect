@@ -11,8 +11,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SignInPageModule } from './sign-in/sign-in.module';
 
+import { RouterModule } from '@angular/router';
+import { LoginPage } from './login/login.page';
+
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, SignInPageModule],
   providers: [

@@ -9,14 +9,14 @@ module.exports = (sequelize, Sequelize) => {
           allowNull: true
       },
       price: {
-          type: Sequelize.INTEGER,
+          type: Sequelize.FLOAT,
           allowNull: false
       },
       tax_rate: {
           type: Sequelize.FLOAT,
           allowNull: true
       },
-      image: {
+      img: {
           type: Sequelize.BLOB,
           allowNull: true
       },
@@ -28,7 +28,7 @@ module.exports = (sequelize, Sequelize) => {
           type: Sequelize.INTEGER,
           allowNull: true
       },
-      availability: {
+      available: {
           type: Sequelize.INTEGER,
           allowNull: false
       }

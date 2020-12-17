@@ -35,11 +35,9 @@ export class HomePage implements OnInit{
   }
 
   deleteProduct(id: number){
-    this.productService.deleteProduct(id).subscribe( () => {
-      this.getAllProducts();
-    }),err => {
-      this.presentAlert("Error", "delete product");
-    }
+    this.productService.deleteProduct(id).subscribe(success =>{
+      location.reload();
+    });
   }
   createProduct(){
     this.productService.setIsUpdateProduct(false);
@@ -66,4 +64,16 @@ export class HomePage implements OnInit{
   
     await alert.present();
 }
+
+// async succsesPresentAlert(subHeader:string, message:string){
+//   const alert = await this.alertController.create({
+//     cssClass: 'my-custom-class',
+//     header: 'Successfully',
+//     subHeader: subHeader,
+//     message: message,
+//     buttons: ['OK']
+//   });
+
+//   await alert.present();
+// }
 }

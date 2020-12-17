@@ -47,6 +47,10 @@ export class ProfilePage implements OnInit {
   };
 }
 
+goToUpdateProfile(){
+  this.router.navigateByUrl("/update-user");
+}
+
 async presentAlert(message: string, origin: string) {
   const alert = await this.alertController.create({
     cssClass: 'my-custom-class',
