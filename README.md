@@ -16,6 +16,8 @@ available, but you will not be able to place any order.
 * [User Requirements](#User-Requirements)
 * [Use Case](#Use-Case)
 * [Interfaces](#Interfaces)
+* [Installation manual](#Installation-manual)
+* [Comparison of technologies](#Comparison-of-technologies)
 * [Planning](#Planing)
 * [Tools](#-Tools)
 * [Spanish Documentation](#-Spanish-Documentation)
@@ -185,23 +187,186 @@ they are correct so that you can correct them.
 
 ### Usability
 
-Here we will see the basic usability features that the project has
-for now, jandonos in the mockup and the prototype:
+Here we will see the basic usability features that the project has:
 
 * Easy to learn and intuitive
 
-These two points are complementary, the Website is intuitive since the
-structure and operation are very similar to those used in others
+These two points are complementary, the Website is intuitive since the structure and operation are very similar to those used in others
 websites dedicated to commerce such as amazon and ebay.
 
+![home](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/usability/home.png)
+*Principal view*
+
 * Error prediction
-As seen in figure 3 or figure 9, the user is noticed if some
-data from those you have entered is erroneous.
+
+As seen in the following images, the user is noticed if any data
+of those you have entered is erroneous or some error has occurred.
+
+![Fail sign in](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/usability/errors.png)
+*Fail to Sign in 1*
+![Fail sign in](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/usability/errorWindow.png)
+*Fail to Sign in 2*
 
 * Elegant in its design
+
 As seen in the mockup and the prototype will use a basic color palette
 (yellow, white, blue, black) based on the Canary Flag as it was used
 to sell Canarian products.
+
+* Usable
+
+    * The user is able to initiate actions and control them, such as start and close session.
+    * The user can change the colors of the application, from light to dark, according to your taste.
+    
+    ![Dark mode](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/usability/darkTheme.png)
+    *Dark mode*
+    
+    * The user can interact with the application and access all the content that is allowed, depending on the type of user you are.
+    * If the user makes some error when inserting data as per example in the registry, you will be notified as it is done in the following image.
+    
+    ![Forms error](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/usability/FormsErrors.png)
+    *validated form 1*
+      ![Forms error 2](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/usability/noData.png)
+    *validated form 2*
+    
+* User familiarity
+
+The app can be accessed from any device.
+
+* Minimal surprise
+
+The user will know at all times what he is doing, so he will not take no surprise.
+
+* Security
+
+The user password is stored in the database encrypted with bcrypt and the base64-encoded token.
+
+ ![Security](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/Doncumentation/Documentos/img/usability/Segurity.png)
+    *Encryption and coding*
+    
+## Installation manual
+
+To be able to use the application first we need to have the applications installed
+[Git](https://git-scm.com/downloads) and [node.JS](https://nodejs.org/es/download/).
+After having installed these two applications we have to access a terminal
+as the cmd in the folder in which you want to install the application and write the
+following command:
+
+```
+git clone https://github.com/Nestorbd/Full−Stack−Proyect
+cd E−commerce/backend
+npm install
+
+```
+
+At the end of this we will have the application server installed.
+If you want the application to have some basic data you will need to install some program
+like the MySQL Workbench or phpMyAdmin to be able to read the [SQL](https://github.com/Nestorbd/Full-Stack-Proyect/blob/master/E-commerce/DB_e_comerce.sql).
+You also have to create a file .env on the backend with the following data:
+
+```
+JWT SECRET=V3RY#1MP0RT@NT$3CR3T#
+MYSQL DATABASE=db e commerce
+MYSQL USER=root
+MYSQLPASSWORD=root
+MYSQLROOTPASSWORD=root
+DB HOST=l o c a l h o s t
+NODE ENV=development
+
+```
+
+To install the client we have to go back to the E-commerce root directory and do what
+following:
+
+```
+cd E−commerce/frontend/e−commerce
+npm install
+
+```
+
+And the client would be installed, now to start the application first we have
+that boot the server and then the client, below I explain how it is done.
+First you have to go back to the E-commerce root directory and do the following:
+
+```
+cd E−commerce/backend
+node server.js
+
+```
+
+Now we open another console in the root directory and do this:
+
+```
+cd E−commerce/frontend/e−commerce
+ionic serve
+
+```
+And that's it, we already have our application installed and working.
+
+## Comparison of technologies
+
+### IONIC
+
+It is a framework that is becoming very popular lately. It is a tool
+that programmers can use totally free, to develop
+apps based on HTML5, CSS and JavaScript. It is built with Sass and optimized
+for AngularJS. Adem as, is free and open source.
+
+* Advantage
+    
+    * AngularJS
+    
+    Works perfectly with AngularJS. Giving rise to a
+    robust architecture for app development. You can create mobile apps
+    rich and robust, to hang in your favorite app store.
+    
+    * It's easy to understand
+    
+    You will not have to complicate your life too much using
+    the framework is quite simple to understand. Is to develop a
+    code once and reuse it as many times as you want.
+    
+    * Neat
+    
+    It is modern and designed to work with the most current, with
+    a clean and neat design. The components are attractive, the typography,
+    etc.
+    
+    * Create, build, test and compile
+    
+    You can create, build, and compile
+    apps on any platform, all with a single command. That's why
+    consider a powerful CLI.
+    
+    * Works fast
+    
+   If you despair with little, you will like Ionic. It's done
+    to be quick.
+    
+    * Ionic Creator
+    
+    One of the advantages of this framwork, is one of its tools,
+    Ionic Creator. Basically it allows to create the Interfaces without having
+    to stick the code to machete. You can create the graphic part easily without touching
+    the code for nothing.
+    
+* Disadvantage
+
+    * It's a hybrid language, it's never going to work as fast as an app native.
+    * It doesn't have all the features that a native app can have.
+    * It is not recommended for very large projects.
+    * Some components may need to be programmed specifically for iOS.
+    
+    
+| Comparative | Hybrid applications | Native apps | Web applications |
+| --- | --- | --- | --- |
+| Learning curve | Simple to learn, and only one curve for all developments | More complicated, and requires learning for each platform separately | Save hardware and software costs |
+| Export to different platforms | Very simple, it is developed once and exported to all | Requires development for each programming language | Easy to use |
+| Development cost | Lower cost, requiring only one development and being this simpler | Higher cost, you have to develop more times and in more complex languages | They facilitate collaborative and remote work |
+| Ease of finding developers | Very simple, and a single person can export to multiple platforms | Somewhat less simple, and normally requires one person for each platform | Scalable and fast update |
+| Performance | Very good, except maybe for very demanding applications, games, 3D | Optimum | They cause fewer errors and problems |
+| Access to device features | Very spacious, although not complete | Full | Data is more secure | 
+| Visual appearance and user experience | Very good, simulating behaviors with HTML5 and CSS3, although it may not be optimal | May be optimal |
 
 ## Plannig
 
@@ -222,6 +387,8 @@ You can see my [planning](https://github.com/Nestorbd/Full-Stack-Proyect/project
 
 ## 🤝 Acknowledgments
 
-* [Meganitrospeed](https://github.com/Meganitrospeed)
+* [Tiburcio Cruz](https://github.com/tcrurav)
 * [Sergio Peñate](https://github.com/SergioPA11)
+* [Eliel Bruna](https://github.com/elbrus19)
 * [Oswaldo J. Pérez Luis](https://github.com/LilGalois) -- Thanks for teaching me LaTeX 
+* [Meganitrospeed](https://github.com/Meganitrospeed)
