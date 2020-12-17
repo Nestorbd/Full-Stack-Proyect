@@ -18,7 +18,7 @@ const apiUrl = 'http://localhost:4000/api/usuarios/';
 export class UserService {
 
   //currentUserName: string;
- currentUserIsAdmin: boolean = false;
+  currentUserIsAdmin: boolean = false;
 
   constructor(private http: HttpClient, private storage: Storage, private router: Router) {
 
@@ -87,13 +87,13 @@ export class UserService {
         if (res.user) {
           await this.storage.set("token", res.access_token);
           await this.storage.set("username", res.user.username);
-         // this.currentUserIsAdmin = res.user.isAdmin;
+          // this.currentUserIsAdmin = res.user.isAdmin;
         }
       })
     );
   }
 
-   
+
 
   async signOut() {
     await this.storage.remove("token");
@@ -103,7 +103,7 @@ export class UserService {
 
   async isLoggedIn() {
     let token = await this.storage.get("token");
-    if (token) { 
+    if (token) {
       await this.findActualUser().subscribe(user => {
         this.currentUserIsAdmin = user.isAdmin;
       })
@@ -112,12 +112,24 @@ export class UserService {
     return false;
   }
 
-  compareUserName(username: string){
-    return this.http.get(apiUrl+"username/compare/"+username);
+  compareUserName(username: string) {
+    return this.http.get(apiUrl + "username/compare/" + username);
   }
 
-  compareUserEmail(email: string){
-    return this.http.get(apiUrl+"email/compare/"+email);
+  compareUserEmail(email: string) {
+    return this.http.get(apiUrl + "email/compare/" + email);
+  }
+
+  compareUserNamewithOtherUsers(username: string, id: number) {
+    return from(this.getHeader().then(myOptions => {
+      return this.http.get(apiUrl + 'users/update/compare/username/' + username + '/' + id, myOptions);
+    }))
+  }
+
+  compareEmailwithOtherUsers(email: string, id: number) {
+    return from(this.getHeader().then(myOptions => {
+      return this.http.get(apiUrl + 'users/update/compare/email/' + email + '/' + id, myOptions);
+    }))
   }
 
   findActualUser(): Observable<any> {
@@ -131,5 +143,27 @@ export class UserService {
         }),
         concatAll()
       );
+  }
+
+  updateUser(user: User): Observable<any> {
+    console.log(user)
+    let bodyencoded = new URLSearchParams();
+    bodyencoded.append("name", user.name);
+    bodyencoded.append("last_name", user.lastName);
+    bodyencoded.append("username", user.username);
+    bodyencoded.append("email", user.email);
+    bodyencoded.append("password", user.password);
+    let body = bodyencoded.toString();
+
+     this.storage.set("username", user.username);
+    return from(
+      Promise.all([
+        this.getHeader(),
+      ])).pipe(map(values => {
+        return this.http.put(apiUrl + user.id, body, values[0]);
+      }),
+        concatAll()
+      );
+
   }
 }

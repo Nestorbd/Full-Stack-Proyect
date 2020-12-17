@@ -70,7 +70,7 @@ exports.isAuthenticated = (req, res, next) => {
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving user with id=" + id
+          message: "Error retrieving user with id=" + user.id
         });
       });
   });

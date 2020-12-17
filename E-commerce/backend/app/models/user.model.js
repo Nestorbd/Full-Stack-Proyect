@@ -4,7 +4,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
-        last_name: {
+        lastName: {
             type: Sequelize.STRING,
             allowNull: true
         },

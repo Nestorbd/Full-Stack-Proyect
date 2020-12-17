@@ -21,6 +21,12 @@ module.exports = app => {
     // Compare username
     router.get("/username/compare/:username", users.compareUserName);
 
+    // Compare username with others users
+    router.get("/users/update/compare/username/:username/:id",auth.isAuthenticated, users.compareUserNameWithOtherUsers);
+    
+    // Compare email with others users
+    router.get("/users/update/compare/email/:email/:id",auth.isAuthenticated, users.compareEmailWithOtherUsers);
+
     // Update a User with id
     router.put("/:id", auth.isAuthenticated, users.update);
 

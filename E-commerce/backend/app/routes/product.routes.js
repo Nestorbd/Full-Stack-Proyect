@@ -17,7 +17,7 @@ module.exports = app => {
     router.get("/name/compare/:name", product.compareProductName);
 
     // Update a Product with id
-    router.put("/:id", auth.isAuthenticated, product.update);
+    router.put("/:id", product.update);
   
     // Delete a Product with id
     router.delete("/:id", auth.isAuthenticated, product.delete);

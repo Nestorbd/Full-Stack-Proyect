@@ -2,11 +2,8 @@
   <ion-toolbar>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
- 
-  <h1>Sign Up</h1>
-  <form [formGroup]="SignUpForm" (ngSubmit)="validateSignUp()">
+<h1>UPDATE</h1>
+  <form [formGroup]="UpdateForm" (ngSubmit)="validateUpdateForm()">
    
     <ion-item>
       <ion-label position="floating">Name</ion-label>
@@ -40,18 +37,12 @@
       <ion-input formControlName="confirmPassword" type="password" required></ion-input>
       <span class="errors-message" id="password-confirm-match">Passwords do not match</span>
     </ion-item>
-    <ion-item>
-      <ion-label> I agree with the terms of use and privacy</ion-label>
-      <ion-checkbox formControlName="termsAgree" slot="start" [(ngModel)]="checked" (onChange)="onChangeChecked()"></ion-checkbox>
-      <span class="errors-message" id="check-terms-use">Check the use terms</span>
-    </ion-item>
     <ion-row>
       <ion-col>
-        <ion-button type="submit"  shape="full" expand="block">Sign Up</ion-button>
+        <ion-button type="submit"  shape="full" expand="block">Update</ion-button>
       </ion-col>
     </ion-row>
   </form>
-  
+<ion-content>
+
 </ion-content>
-
-

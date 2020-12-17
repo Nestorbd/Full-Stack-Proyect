@@ -7,7 +7,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UserService } from './services/user.service';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
-import * as jQuery from 'jquery';
+import { ModalController} from '@ionic/angular';
+import {LoginPage} from './login/login.page';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +24,10 @@ export class AppComponent {
     private statusBar: StatusBar,
     private userService: UserService,
     private storage: Storage, 
-    private router: Router
+    private router: Router,
+    public modalController: ModalController,
+    public fb: FormBuilder, 
+    private alertController: AlertController
   ) {
     this.initializeApp();
   }
@@ -36,6 +42,13 @@ export class AppComponent {
 
   signOut(){
     this.userService.signOut();
+  }
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: LoginPage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
   }
 
   loginOrJustEnter(){
@@ -67,9 +80,25 @@ export class AppComponent {
   darkTheme(event){
     if(event.detail.checked){
       document.body.setAttribute('color-theme','dark');
+ 
     }else{
       document.body.setAttribute('color-theme','light');
+
     }
     
   }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Error',
+      subHeader: 'Server Error',
+      message: 'could not connect to server',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+  
 }
